@@ -788,6 +788,7 @@ export default {
     new_0_5_17_1: 'Windows 완전 호환: 경로 처리, 프로세스 관리, 터미널, 로그 파싱',
     new_0_5_17_2: 'Gateway 프로세스 관리 리팩토링, 크로스 플랫폼 시작/중지/헬스체크 지원',
     new_0_5_17_3: 'Termux에서 hermes shebang을 파싱하여 Python을 찾아 플러그인 발견 수정',
+    new_0_5_17_4: '완전한 API 통합을 갖춘 go-magic 백엔드 어댑터 추가',
     new_0_5_17_5: '인증 잠금 창 및 개발 환경 종료 흐름 개선',
     new_0_5_17_6: 'Comic 테마에 중국어(ZCOOL KuaiLe), 일본어(Zen Maru Gothic), 한국어(Gaegu) 필기 폰트 추가',
     new_0_5_13_1: '메시지 큐를 통한 순차 실행 처리로 동시 요청 충돌 방지',

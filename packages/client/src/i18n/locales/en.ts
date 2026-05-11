@@ -1048,6 +1048,7 @@ export default {
     new_0_5_17_1: 'Full Windows compatibility: path handling, process management, terminal, log parsing',
     new_0_5_17_2: 'Refactor Gateway process management with cross-platform start/stop/health-check',
     new_0_5_17_3: 'Fix plugin discovery on Termux by parsing hermes shebang to locate Python',
+    new_0_5_17_4: 'Add go-magic backend adapter with full API integration',
     new_0_5_17_5: 'Improve auth lock window and dev shutdown flow',
     new_0_5_17_6: 'Add Chinese (ZCOOL KuaiLe), Japanese (Zen Maru Gothic), Korean (Gaegu) handwritten fonts for Comic theme',
     new_0_5_13_1: 'Add message queue for sequential run processing to prevent concurrent request conflicts',
