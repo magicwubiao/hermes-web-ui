@@ -31,6 +31,13 @@ import { ttsRoutes } from './hermes/tts'
 import { proxyRoutes, proxyMiddleware } from './hermes/proxy'
 import { groupChatRoutes, setGroupChatServer } from './hermes/group-chat'
 
+// Magic route modules (go-magic backend adapter)
+import { sessionRoutes as magicSessionRoutes } from './magic/sessions'
+import { chatRoutes as magicChatRoutes } from './magic/chat'
+import { configRoutes as magicConfigRoutes } from './magic/config'
+import { skillRoutes as magicSkillRoutes } from './magic/skills'
+import { logRoutes as magicLogRoutes } from './magic/logs'
+
 /**
  * Register all routes on the Koa app.
  * Public routes are registered first, then auth middleware,
@@ -71,6 +78,14 @@ export function registerRoutes(app: any, requireAuth: (ctx: Context, next: Next)
   app.use(cronHistoryRoutes.routes())        // Must be before proxy
   app.use(kanbanRoutes.routes())             // Must be before proxy
   app.use(proxyRoutes.routes())
+
+  // --- Magic (go-magic backend) routes ---
+  // These routes proxy requests to the go-magic backend
+  app.use(magicSessionRoutes.routes())
+  app.use(magicChatRoutes.routes())
+  app.use(magicConfigRoutes.routes())
+  app.use(magicSkillRoutes.routes())
+  app.use(magicLogRoutes.routes())
 
   // Proxy catch-all middleware (must be last)
   return proxyMiddleware

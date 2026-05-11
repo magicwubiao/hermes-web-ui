@@ -91,3 +91,48 @@ pnpm run preview       # vite preview（默认 4173）
 1. **端口冲突**：preview/run 脚本会先清理 5000 端口残留进程
 2. **构建失败**：确保 TypeScript 类型检查通过后再构建
 3. **后端启动失败**：检查 Hermes CLI 是否可用，以及 8648 端口是否被占用
+
+## go-magic 后端适配
+
+Hermes Web UI 支持通过 BFF 适配层连接 go-magic 后端。适配层位于：
+
+### 后端适配
+
+| 目录 | 说明 |
+|------|------|
+| `packages/server/src/services/magic/` | go-magic HTTP API 和 WebSocket 客户端 |
+| `packages/server/src/routes/magic/` | Koa 路由，将请求代理到 go-magic |
+
+### 前端适配
+
+| 目录 | 说明 |
+|------|------|
+| `packages/client/src/api/magic/` | 前端 API 模块 |
+
+### go-magic API 端点映射
+
+| 路由 | 说明 | go-magic 后端 |
+|------|------|---------------|
+| `GET /api/magic/sessions` | 会话列表 | `/api/sessions` |
+| `POST /api/magic/sessions` | 创建会话 | `/api/sessions` |
+| `GET /api/magic/sessions/:id` | 获取会话 | `/api/sessions/:id` |
+| `POST /api/magic/sessions/:id` | 发送消息 | `/api/sessions/:id` |
+| `DELETE /api/magic/sessions/:id` | 删除会话 | `/api/sessions/:id` |
+| `GET /api/magic/chat/health` | 健康检查 | `/api/health` |
+| `GET /api/magic/chat/tools` | 工具列表 | `/api/tools` |
+| `GET /api/magic/chat/toolsets` | 工具集 | `/api/toolsets` |
+| `GET /api/magic/config` | 配置 | `/api/config` |
+| `GET /api/magic/skills` | Skills | `/api/skills` |
+| `GET /api/magic/logs` | 日志 | `/api/logs` |
+
+### 环境变量
+
+| 变量 | 默认值 | 说明 |
+|------|--------|------|
+| `MAGIC_API_URL` | `http://localhost:8080` | go-magic 后端 API 地址 |
+
+### 使用方式
+
+1. 确保 go-magic 后端正在运行
+2. 设置 `MAGIC_API_URL` 环境变量（如果使用非默认地址）
+3. 前端通过 `/api/magic/*` 调用，BFF 会自动代理到 go-magic
