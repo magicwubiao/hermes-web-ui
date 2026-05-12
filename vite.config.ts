@@ -5,6 +5,7 @@ import { resolve } from 'path'
 import pkg from './package.json'
 
 const BACKEND = 'http://127.0.0.1:8648'
+const GO_MAGIC = 'http://127.0.0.1:5000'
 
 function createProxyConfig(): ProxyOptions {
   return {
@@ -77,6 +78,15 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    proxy: {
+      '/api/magic': {
+        target: GO_MAGIC,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/magic/, '/api'),
+      },
+    },
+  },
   optimizeDeps: {
     // Pre-bundle all large dependencies for faster builds
     include: [
@@ -90,6 +100,17 @@ export default defineConfig({
   },
   server: {
     proxy: {
+      '/api/magic': {
+        target: GO_MAGIC,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/magic/, '/api'),
+        configure: (proxy) => {
+          proxy.on('proxyReq', (proxyReq) => {
+            proxyReq.removeHeader('origin')
+            proxyReq.removeHeader('referer')
+          })
+        },
+      },
       '/api': createProxyConfig(),
       '/v1': createProxyConfig(),
       '/health': createProxyConfig(),

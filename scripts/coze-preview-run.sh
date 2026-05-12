@@ -17,4 +17,4 @@ fi
 
 # 使用 vite preview 在 5000 端口提供服务
 # Vite preview 默认端口是 4173，需要显式指定 5000
-exec pnpm exec vite preview --host 0.0.0.0 --port 5000
+exec pnpm exec vite preview --host 0.0.0.0 --port 5001
