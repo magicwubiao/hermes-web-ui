@@ -27,7 +27,7 @@ vi.mock('os', () => ({
   homedir: () => '/Users/tester',
 }))
 
-vi.mock('../../packages/server/src/services/hermes/hermes-kanban', () => ({
+vi.mock('../../packages/server/src/services/magic/hermes-kanban', () => ({
   normalizeBoardSlug: (board?: string | null) => {
     const value = board?.trim() || 'default'
     if (!/^[a-z0-9][a-z0-9-]{0,62}$/.test(value)) throw new Error('Invalid kanban board slug')
@@ -48,14 +48,14 @@ vi.mock('../../packages/server/src/services/hermes/hermes-kanban', () => ({
   getAssignees: mockGetAssignees,
 }))
 
-vi.mock('../../packages/server/src/db/hermes/sessions-db', () => ({
+vi.mock('../../packages/server/src/db/magic/sessions-db', () => ({
   searchSessionSummariesWithProfile: mockSearchSessions,
   getSessionDetailFromDbWithProfile: mockGetSessionDetail,
   getExactSessionDetailFromDbWithProfile: mockGetExactSessionDetail,
   findLatestExactSessionIdWithProfile: mockFindLatestExactSessionId,
 }))
 
-import * as ctrl from '../../packages/server/src/controllers/hermes/kanban'
+import * as ctrl from '../../packages/server/src/controllers/magic/kanban'
 
 function ctx(overrides: Record<string, any> = {}) {
   return {

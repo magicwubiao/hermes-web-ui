@@ -13,12 +13,12 @@ const getActiveProfileNameMock = vi.fn()
 const loggerWarnMock = vi.fn()
 const getCompressionSnapshotMock = vi.fn()
 
-vi.mock('../../packages/server/src/db/hermes/conversations-db', () => ({
+vi.mock('../../packages/server/src/db/magic/conversations-db', () => ({
   listConversationSummariesFromDb: listConversationSummariesFromDbMock,
   getConversationDetailFromDb: getConversationDetailFromDbMock,
 }))
 
-vi.mock('../../packages/server/src/services/hermes/conversations', () => ({
+vi.mock('../../packages/server/src/services/magic/conversations', () => ({
   listConversationSummaries: listConversationSummariesMock,
   getConversationDetail: getConversationDetailMock,
 }))
@@ -30,14 +30,14 @@ vi.mock('../../packages/server/src/services/logger', () => ({
   },
 }))
 
-vi.mock('../../packages/server/src/services/hermes/hermes-cli', () => ({
+vi.mock('../../packages/server/src/services/magic/hermes-cli', () => ({
   listSessions: vi.fn(),
   getSession: getSessionMock,
   deleteSession: vi.fn(),
   renameSession: vi.fn(),
 }))
 
-vi.mock('../../packages/server/src/db/hermes/sessions-db', () => ({
+vi.mock('../../packages/server/src/db/magic/sessions-db', () => ({
   listSessionSummaries: vi.fn(),
   searchSessionSummaries: vi.fn(),
   getSessionDetailFromDb: getSessionDetailFromDbMock,
@@ -45,30 +45,30 @@ vi.mock('../../packages/server/src/db/hermes/sessions-db', () => ({
 }))
 
 // Mock useLocalSessionStore to return false so we test the CLI path
-vi.mock('../../packages/server/src/db/hermes/session-store', () => ({
+vi.mock('../../packages/server/src/db/magic/session-store', () => ({
   useLocalSessionStore: () => false,
 }))
 
-vi.mock('../../packages/server/src/db/hermes/usage-store', () => ({
+vi.mock('../../packages/server/src/db/magic/usage-store', () => ({
   deleteUsage: vi.fn(),
   getUsage: vi.fn(),
   getUsageBatch: vi.fn(),
   getLocalUsageStats: getLocalUsageStatsMock,
 }))
 
-vi.mock('../../packages/server/src/routes/hermes/group-chat', () => ({
+vi.mock('../../packages/server/src/routes/magic/group-chat', () => ({
   getGroupChatServer: getGroupChatServerMock,
 }))
 
-vi.mock('../../packages/server/src/services/hermes/model-context', () => ({
+vi.mock('../../packages/server/src/services/magic/model-context', () => ({
   getModelContextLength: vi.fn(),
 }))
 
-vi.mock('../../packages/server/src/services/hermes/hermes-profile', () => ({
+vi.mock('../../packages/server/src/services/magic/hermes-profile', () => ({
   getActiveProfileName: getActiveProfileNameMock,
 }))
 
-vi.mock('../../packages/server/src/db/hermes/compression-snapshot', () => ({
+vi.mock('../../packages/server/src/db/magic/compression-snapshot', () => ({
   getCompressionSnapshot: getCompressionSnapshotMock,
 }))
 
@@ -109,7 +109,7 @@ describe('session conversations controller', () => {
   it('prefers the DB-backed conversations summary path', async () => {
     listConversationSummariesFromDbMock.mockResolvedValue([{ id: 'db-conversation' }])
 
-    const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+    const mod = await import('../../packages/server/src/controllers/magic/sessions')
     const ctx: any = { query: { humanOnly: 'true', limit: '5' }, body: null }
     await mod.listConversations(ctx)
 
@@ -122,7 +122,7 @@ describe('session conversations controller', () => {
     listConversationSummariesFromDbMock.mockRejectedValue(new Error('db unavailable'))
     listConversationSummariesMock.mockResolvedValue([{ id: 'fallback-conversation' }])
 
-    const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+    const mod = await import('../../packages/server/src/controllers/magic/sessions')
     const ctx: any = { query: { humanOnly: 'false' }, body: null }
     await mod.listConversations(ctx)
 
@@ -134,7 +134,7 @@ describe('session conversations controller', () => {
   it('prefers the DB-backed conversation detail path', async () => {
     getConversationDetailFromDbMock.mockResolvedValue({ session_id: 'root', messages: [], visible_count: 0, thread_session_count: 1 })
 
-    const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+    const mod = await import('../../packages/server/src/controllers/magic/sessions')
     const ctx: any = { params: { id: 'root' }, query: { humanOnly: 'true' }, body: null }
     await mod.getConversationMessages(ctx)
 
@@ -147,7 +147,7 @@ describe('session conversations controller', () => {
     getConversationDetailFromDbMock.mockRejectedValue(new Error('db unavailable'))
     getConversationDetailMock.mockResolvedValue({ session_id: 'root', messages: [{ id: 1 }], visible_count: 1, thread_session_count: 1 })
 
-    const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+    const mod = await import('../../packages/server/src/controllers/magic/sessions')
     const ctx: any = { params: { id: 'root' }, query: { humanOnly: 'false' }, body: null }
     await mod.getConversationMessages(ctx)
 
@@ -189,7 +189,7 @@ describe('session conversations controller', () => {
       ],
     })
 
-    const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+    const mod = await import('../../packages/server/src/controllers/magic/sessions')
     const ctx: any = { query: { days: '2' }, body: null }
     await mod.usageStats(ctx)
 
@@ -225,7 +225,7 @@ describe('session conversations controller', () => {
       const sessionData = { id: 'abc-123', title: 'Test Session', messages: [{ id: 1, role: 'user', content: 'hello' }] }
       getSessionDetailFromDbMock.mockResolvedValue(sessionData)
 
-      const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+      const mod = await import('../../packages/server/src/controllers/magic/sessions')
       const setMock = vi.fn()
       const ctx: any = { params: { id: 'abc-123' }, query: {}, set: setMock, body: null }
 
@@ -249,7 +249,7 @@ describe('session conversations controller', () => {
       }
       getSessionDetailFromDbMock.mockResolvedValue(sessionData)
 
-      const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+      const mod = await import('../../packages/server/src/controllers/magic/sessions')
       const setMock = vi.fn()
       const ctx: any = { params: { id: 'txt-123' }, query: { mode: 'full', ext: 'txt' }, set: setMock, body: null }
 
@@ -267,7 +267,7 @@ describe('session conversations controller', () => {
       getSessionDetailFromDbMock.mockResolvedValue(null)
       getSessionMock.mockResolvedValue(null)
 
-      const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+      const mod = await import('../../packages/server/src/controllers/magic/sessions')
       const ctx: any = { params: { id: 'not-found' }, query: {}, set: vi.fn(), body: null }
 
       await mod.exportSession(ctx)
@@ -281,7 +281,7 @@ describe('session conversations controller', () => {
       getSessionDetailFromDbMock.mockRejectedValue(new Error('db unavailable'))
       getSessionMock.mockResolvedValue(sessionData)
 
-      const mod = await import('../../packages/server/src/controllers/hermes/sessions')
+      const mod = await import('../../packages/server/src/controllers/magic/sessions')
       const setMock = vi.fn()
       const ctx: any = { params: { id: 'cli-123' }, query: {}, set: setMock, body: null }
 

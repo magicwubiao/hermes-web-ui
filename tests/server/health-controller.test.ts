@@ -13,7 +13,7 @@ async function loadHealthControllerWithoutInjectedVersion() {
   vi.resetModules()
   delete (globalThis as any).__APP_VERSION__
 
-  vi.doMock('../../packages/server/src/services/hermes/hermes-cli', () => ({
+  vi.doMock('../../packages/server/src/services/magic/hermes-cli', () => ({
     getVersion: vi.fn().mockResolvedValue('Hermes Agent v0.11.0\n'),
   }))
 
@@ -30,7 +30,7 @@ async function loadHealthControllerWithInjectedVersion(version: string) {
   vi.resetModules()
   ;(globalThis as any).__APP_VERSION__ = version
 
-  vi.doMock('../../packages/server/src/services/hermes/hermes-cli', () => ({
+  vi.doMock('../../packages/server/src/services/magic/hermes-cli', () => ({
     getVersion: vi.fn().mockResolvedValue('Hermes Agent v0.11.0\n'),
   }))
 

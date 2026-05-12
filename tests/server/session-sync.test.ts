@@ -3,11 +3,11 @@
  */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { getDb } from '../../packages/server/src/db/index'
-import { initAllStores } from '../../packages/server/src/db/hermes/init'
-import { listSessionSummaries } from '../../packages/server/src/db/hermes/sessions-db'
-import { syncAllHermesSessionsOnStartup } from '../../packages/server/src/services/hermes/session-sync'
+import { initAllStores } from '../../packages/server/src/db/magic/init'
+import { listSessionSummaries } from '../../packages/server/src/db/magic/sessions-db'
+import { syncAllHermesSessionsOnStartup } from '../../packages/server/src/services/magic/session-sync'
 
-vi.mock('../../packages/server/src/db/hermes/sessions-db', () => ({
+vi.mock('../../packages/server/src/db/magic/sessions-db', () => ({
   listSessionSummaries: vi.fn().mockResolvedValue([]),
   getSessionDetailFromDbWithProfile: vi.fn(),
 }))

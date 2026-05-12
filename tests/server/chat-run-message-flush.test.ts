@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 // Mock DB module before importing
 const addMessageMock = vi.fn()
-vi.mock('../../packages/server/src/db/hermes/session-store', () => ({
+vi.mock('../../packages/server/src/db/magic/session-store', () => ({
   addMessage: addMessageMock,
   getSession: vi.fn(),
   getSessionDetail: vi.fn(),
@@ -12,7 +12,7 @@ vi.mock('../../packages/server/src/db/hermes/session-store', () => ({
   useLocalSessionStore: vi.fn(() => false),
 }))
 
-vi.mock('../../packages/server/src/db/hermes/sessions-db', () => ({
+vi.mock('../../packages/server/src/db/magic/sessions-db', () => ({
   getSessionDetailFromDb: vi.fn(),
 }))
 
@@ -26,7 +26,7 @@ vi.mock('../../packages/server/src/lib/context-compressor', () => ({
   SUMMARY_PREFIX: '[Summary] ',
 }))
 
-vi.mock('../../packages/server/src/db/hermes/compression-snapshot', () => ({
+vi.mock('../../packages/server/src/db/magic/compression-snapshot', () => ({
   getCompressionSnapshot: vi.fn(),
 }))
 
@@ -40,7 +40,7 @@ vi.mock('../../packages/server/src/lib/llm-prompt', () => ({
   getSystemPrompt: vi.fn(() => ''),
 }))
 
-vi.mock('../../packages/server/src/db/hermes/usage-store', () => ({
+vi.mock('../../packages/server/src/db/magic/usage-store', () => ({
   updateUsage: vi.fn(),
 }))
 

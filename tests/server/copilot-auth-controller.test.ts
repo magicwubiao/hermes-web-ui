@@ -30,12 +30,12 @@ vi.mock('../../packages/server/src/services/config-helpers', () => ({
   writeConfigYaml: mockWriteConfigYaml,
 }))
 
-vi.mock('../../packages/server/src/services/hermes/copilot-models', () => ({
+vi.mock('../../packages/server/src/services/magic/copilot-models', () => ({
   resolveCopilotOAuthTokenWithSource: mockResolveWithSource,
   invalidateAllCaches: mockInvalidate,
 }))
 
-vi.mock('../../packages/server/src/services/hermes/hermes-profile', () => ({
+vi.mock('../../packages/server/src/services/magic/hermes-profile', () => ({
   getActiveEnvPath: () => '/fake/home/.hermes/.env',
 }))
 
@@ -48,7 +48,7 @@ vi.mock('../../packages/server/src/services/logger', () => ({
   logger: { info: vi.fn(), error: vi.fn(), warn: vi.fn() },
 }))
 
-import * as ctrl from '../../packages/server/src/controllers/hermes/copilot-auth'
+import * as ctrl from '../../packages/server/src/controllers/magic/copilot-auth'
 
 function makeCtx(): any {
   return { params: {}, request: { body: {} }, body: undefined, status: 200 }

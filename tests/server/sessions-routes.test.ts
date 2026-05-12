@@ -19,7 +19,7 @@ const contextLengthMock = vi.fn(async (ctx: any) => { ctx.body = { context_lengt
 const batchRemoveMock = vi.fn(async (ctx: any) => { ctx.body = { deleted: 1, failed: 0, errors: [] } })
 const exportSessionMock = vi.fn(async (ctx: any) => { ctx.body = JSON.stringify({ id: ctx.params.id }) })
 
-vi.mock('../../packages/server/src/controllers/hermes/sessions', () => ({
+vi.mock('../../packages/server/src/controllers/magic/sessions', () => ({
   listConversations: listConversationsMock,
   getConversationMessages: getConversationMessagesMock,
   getConversationMessagesPaginated: getConversationMessagesPaginatedMock,
@@ -54,7 +54,7 @@ describe('session routes', () => {
   })
 
   it('registers conversations, session list, and search routes', async () => {
-    const { sessionRoutes } = await import('../../packages/server/src/routes/hermes/sessions')
+    const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
     const paths = sessionRoutes.stack.map((entry: any) => entry.path)
 
     expect(paths).toEqual(expect.arrayContaining([
@@ -75,7 +75,7 @@ describe('session routes', () => {
   })
 
   it('delegates session search to the controller', async () => {
-    const { sessionRoutes } = await import('../../packages/server/src/routes/hermes/sessions')
+    const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
     const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/search/sessions')
     const handler = layer.stack[0]
     const ctx: any = { query: { q: 'docker', limit: '8' }, body: null, params: {} }
@@ -87,7 +87,7 @@ describe('session routes', () => {
   })
 
   it('keeps the legacy search path wired to the same controller', async () => {
-    const { sessionRoutes } = await import('../../packages/server/src/routes/hermes/sessions')
+    const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
     const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/search')
     const handler = layer.stack[0]
     const ctx: any = { query: { q: 'docker' }, body: null, params: {} }
@@ -99,7 +99,7 @@ describe('session routes', () => {
   })
 
   it('delegates conversations list and detail routes', async () => {
-    const { sessionRoutes } = await import('../../packages/server/src/routes/hermes/sessions')
+    const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
     const listLayer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/conversations')
     const detailLayer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/conversations/:id/messages')
 
@@ -115,7 +115,7 @@ describe('session routes', () => {
   })
 
   it('delegates session export to the controller', async () => {
-    const { sessionRoutes } = await import('../../packages/server/src/routes/hermes/sessions')
+    const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
     const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/:id/export')
     const handler = layer.stack[0]
     const ctx: any = { params: { id: 'session-abc' }, query: {}, body: null, set: vi.fn() }

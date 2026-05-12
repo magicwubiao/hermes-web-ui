@@ -21,7 +21,7 @@ import {
   buildConversationHistory,
   callSummarizer,
 } from './index'
-import { getCompressionSnapshot } from '../../db/hermes/compression-snapshot'
+import { getCompressionSnapshot } from '../../db/magic/compression-snapshot'
 
 export class ExportCompressor {
   private config: CompressionConfig

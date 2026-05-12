@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'fs'
 import { resolve } from 'path'
-import * as hermesCli from '../services/hermes/hermes-cli'
+import * as hermesCli from '../services/magic/hermes-cli'
 import { getGatewayManagerInstance } from '../services/gateway-bootstrap'
 
 declare const __APP_VERSION__: string

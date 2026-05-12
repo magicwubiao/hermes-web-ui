@@ -24,7 +24,7 @@ import {
   getUsage,
   getUsageBatch,
   deleteUsage,
-} from '../../packages/server/src/db/hermes/usage-store'
+} from '../../packages/server/src/db/magic/usage-store'
 
 describe('Usage Store (JSON fallback)', () => {
   beforeEach(() => {
@@ -149,7 +149,7 @@ describe('Usage Store (SQLite path)', () => {
   })
 
   it('updateUsage runs INSERT ... ON CONFLICT query', async () => {
-    const { updateUsage } = await import('../../packages/server/src/db/hermes/usage-store')
+    const { updateUsage } = await import('../../packages/server/src/db/magic/usage-store')
     updateUsage('s1', { inputTokens: 500, outputTokens: 200 })
     expect(runMock).toHaveBeenCalledWith(
       's1',
@@ -175,7 +175,7 @@ describe('Usage Store (SQLite path)', () => {
       profile: 'default',
       created_at: 0,
     })
-    const { getUsage } = await import('../../packages/server/src/db/hermes/usage-store')
+    const { getUsage } = await import('../../packages/server/src/db/magic/usage-store')
     const result = getUsage('s1')
     expect(getMock).toHaveBeenCalledWith('s1')
     expect(result).toEqual({
@@ -195,7 +195,7 @@ describe('Usage Store (SQLite path)', () => {
       { session_id: 'a', input_tokens: 1, output_tokens: 2, cache_read_tokens: 0, cache_write_tokens: 0, reasoning_tokens: 0, model: '', profile: 'default', created_at: 0 },
       { session_id: 'b', input_tokens: 3, output_tokens: 4, cache_read_tokens: 0, cache_write_tokens: 0, reasoning_tokens: 0, model: '', profile: 'default', created_at: 0 },
     ])
-    const { getUsageBatch } = await import('../../packages/server/src/db/hermes/usage-store')
+    const { getUsageBatch } = await import('../../packages/server/src/db/magic/usage-store')
     const result = getUsageBatch(['a', 'b', 'c'])
     expect(allMock).toHaveBeenCalledWith('a', 'b', 'c')
     expect(result).toEqual({
@@ -205,7 +205,7 @@ describe('Usage Store (SQLite path)', () => {
   })
 
   it('deleteUsage runs DELETE query', async () => {
-    const { deleteUsage } = await import('../../packages/server/src/db/hermes/usage-store')
+    const { deleteUsage } = await import('../../packages/server/src/db/magic/usage-store')
     deleteUsage('s1')
     expect(deleteMock).toHaveBeenCalledWith('s1')
   })

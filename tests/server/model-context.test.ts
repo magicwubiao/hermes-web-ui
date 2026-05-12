@@ -33,7 +33,7 @@ async function loadModelContext() {
       getDb: () => null,
     }
   })
-  return import('../../packages/server/src/services/hermes/model-context')
+  return import('../../packages/server/src/services/magic/model-context')
 }
 
 describe('getModelContextLength', () => {

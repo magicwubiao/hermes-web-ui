@@ -12,13 +12,13 @@ import { getToken, requireAuth } from './services/auth'
 import { initLoginLimiter } from './services/login-limiter'
 import { initGatewayManager, getGatewayManagerInstance } from './services/gateway-bootstrap'
 import { bindShutdown } from './services/shutdown'
-import { setupTerminalWebSocket } from './routes/hermes/terminal'
+import { setupTerminalWebSocket } from './routes/magic/terminal'
 import { startVersionCheck } from './routes/health'
 import { registerRoutes } from './routes'
-import { setGroupChatServer } from './routes/hermes/group-chat'
-import { setChatRunServer } from './routes/hermes/chat-run'
-import { GroupChatServer } from './services/hermes/group-chat'
-import { ChatRunSocket } from './services/hermes/chat-run-socket'
+import { setGroupChatServer } from './routes/magic/group-chat'
+import { setChatRunServer } from './routes/magic/chat-run'
+import { GroupChatServer } from './services/magic/group-chat'
+import { ChatRunSocket } from './services/magic/chat-run-socket'
 import { logger } from './services/logger'
 
 // Injected by esbuild at build time; fallback to reading package.json in dev mode
@@ -91,14 +91,14 @@ export async function bootstrap() {
   console.log('[bootstrap] gateway manager initialized')
   await new Promise(resolve => setTimeout(resolve, 1000))
   // Initialize all web-ui SQLite tables
-  const { initAllStores } = await import('./db/hermes/init')
+  const { initAllStores } = await import('./db/magic/init')
   // Wait 1 second before initializing stores to ensure all resources are ready
   initAllStores()
   await new Promise(resolve => setTimeout(resolve, 1000))
   console.log('[bootstrap] all stores initialized')
 
   // Sync Hermes sessions from all profiles (only if local DB is empty)
-  const { syncAllHermesSessionsOnStartup } = await import('./services/hermes/session-sync')
+  const { syncAllHermesSessionsOnStartup } = await import('./services/magic/session-sync')
   await syncAllHermesSessionsOnStartup()
   console.log('[bootstrap] Hermes session sync completed')
 
@@ -149,7 +149,7 @@ export async function bootstrap() {
   chatRunServer.init()
 
   // Session deleter — periodically drain pending session deletes
-  const { SessionDeleter } = await import('./services/hermes/session-deleter')
+  const { SessionDeleter } = await import('./services/magic/session-deleter')
   const sessionDeleter = SessionDeleter.getInstance()
   const activeProfile = process.env.PROFILE || 'default'
   sessionDeleter.start(activeProfile)

@@ -22,7 +22,7 @@ describe('Hermes schema initialization', () => {
 
   it('initializes all tables with correct schemas', async () => {
     const { initAllHermesTables, USAGE_TABLE, SESSIONS_TABLE, MESSAGES_TABLE, GC_ROOMS_TABLE } =
-      await import('../../packages/server/src/db/hermes/schemas')
+      await import('../../packages/server/src/db/magic/schemas')
 
     expect(() => initAllHermesTables()).not.toThrow()
 
@@ -43,7 +43,7 @@ describe('Hermes schema initialization', () => {
 
   it('preserves existing data when syncing schemas', async () => {
     const { initAllHermesTables, USAGE_TABLE, USAGE_SCHEMA } =
-      await import('../../packages/server/src/db/hermes/schemas')
+      await import('../../packages/server/src/db/magic/schemas')
 
     // Create table with minimal schema
     db.exec(`CREATE TABLE "${USAGE_TABLE}" (id INTEGER PRIMARY KEY AUTOINCREMENT, session_id TEXT NOT NULL, created_at INTEGER NOT NULL)`)
@@ -67,7 +67,7 @@ describe('Hermes schema initialization', () => {
 
   it('handles single-column primary key tables correctly', async () => {
     const { initAllHermesTables, GC_ROOM_AGENTS_TABLE } =
-      await import('../../packages/server/src/db/hermes/schemas')
+      await import('../../packages/server/src/db/magic/schemas')
 
     expect(() => initAllHermesTables()).not.toThrow()
 

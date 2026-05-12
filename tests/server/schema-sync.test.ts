@@ -108,7 +108,7 @@ describe('Database Schema Synchronization', () => {
   describe('Normal initialization - fresh database creation', () => {
     it('creates all tables with correct schemas when database does not exist', async () => {
       const { initAllHermesTables, USAGE_TABLE, USAGE_SCHEMA, SESSIONS_TABLE, SESSIONS_SCHEMA } =
-        await import('../../packages/server/src/db/hermes/schemas')
+        await import('../../packages/server/src/db/magic/schemas')
 
       initAllHermesTables()
 
@@ -138,7 +138,7 @@ describe('Database Schema Synchronization', () => {
 
   describe('Schema sync with column additions', () => {
     it('adds missing columns to existing table without rebuilding', async () => {
-      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/hermes/schemas')
+      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/magic/schemas')
 
       // Create initial table without some columns
       const db = getTestDb()
@@ -167,7 +167,7 @@ describe('Database Schema Synchronization', () => {
   describe('Schema sync with single-column primary keys', () => {
     it('creates table with single-column primary key', async () => {
       const { syncTable, GC_ROOM_AGENTS_TABLE, GC_ROOM_AGENTS_SCHEMA } =
-        await import('../../packages/server/src/db/hermes/schemas')
+        await import('../../packages/server/src/db/magic/schemas')
 
       syncTable(GC_ROOM_AGENTS_TABLE, GC_ROOM_AGENTS_SCHEMA, {
         primaryKey: 'id',
@@ -212,7 +212,7 @@ describe('Database Schema Synchronization', () => {
   describe('Primary key changes trigger table rebuild', () => {
     it('rebuilds table when primary key changes from single column to id column', async () => {
       const { syncTable, GC_ROOM_MEMBERS_TABLE, GC_ROOM_MEMBERS_SCHEMA } =
-        await import('../../packages/server/src/db/hermes/schemas')
+        await import('../../packages/server/src/db/magic/schemas')
 
       const db = getTestDb()
 
@@ -242,7 +242,7 @@ describe('Database Schema Synchronization', () => {
 
   describe('Schema sync with type changes', () => {
     it('rebuilds table when column types change', async () => {
-      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/hermes/schemas')
+      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/magic/schemas')
 
       const db = getTestDb()
 
@@ -272,7 +272,7 @@ describe('Database Schema Synchronization', () => {
   describe('Index synchronization', () => {
     it('creates specified indexes on table', async () => {
       const { syncTable, MESSAGES_TABLE, MESSAGES_SCHEMA } =
-        await import('../../packages/server/src/db/hermes/schemas')
+        await import('../../packages/server/src/db/magic/schemas')
 
       syncTable(MESSAGES_TABLE, MESSAGES_SCHEMA, {
         indexes: {
@@ -289,7 +289,7 @@ describe('Database Schema Synchronization', () => {
 
     it('removes obsolete indexes', async () => {
       const { syncTable, MESSAGES_TABLE, MESSAGES_SCHEMA } =
-        await import('../../packages/server/src/db/hermes/schemas')
+        await import('../../packages/server/src/db/magic/schemas')
 
       const db = getTestDb()
 
@@ -316,7 +316,7 @@ describe('Database Schema Synchronization', () => {
 
   describe('Data preservation during schema sync', () => {
     it('preserves data when only adding columns', async () => {
-      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/hermes/schemas')
+      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/magic/schemas')
 
       const db = getTestDb()
 
@@ -338,7 +338,7 @@ describe('Database Schema Synchronization', () => {
 
     it('preserves data when rebuilding table with compatible columns', async () => {
       const { syncTable, GC_ROOM_AGENTS_TABLE, GC_ROOM_AGENTS_SCHEMA } =
-        await import('../../packages/server/src/db/hermes/schemas')
+        await import('../../packages/server/src/db/magic/schemas')
 
       const db = getTestDb()
 
@@ -367,7 +367,7 @@ describe('Database Schema Synchronization', () => {
 
   describe('Column deletion', () => {
     it('removes extra columns from existing table', async () => {
-      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/hermes/schemas')
+      const { syncTable, USAGE_TABLE, USAGE_SCHEMA } = await import('../../packages/server/src/db/magic/schemas')
 
       // Create table with extra columns
       const db = getTestDb()

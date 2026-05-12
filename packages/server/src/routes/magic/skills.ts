@@ -1,25 +1,10 @@
-/**
- * Magic Skills Routes
- * 
- * Skills API 路由。
- */
-
 import Router from '@koa/router'
-import type { Context } from 'koa'
-import { getMagicApiClient } from '../../services/magic'
+import * as ctrl from '../../controllers/magic/skills'
 
-const skillRoutes = new Router({ prefix: '/api/magic/skills' })
+export const skillRoutes = new Router()
 
-// GET /api/magic/skills - List all skills
-skillRoutes.get('/', async (ctx: Context) => {
-  try {
-    const client = getMagicApiClient()
-    const skills = await client.listSkills()
-    ctx.body = { skills }
-  } catch (error: any) {
-    ctx.status = error.status || 500
-    ctx.body = { error: error.message || 'Failed to fetch skills' }
-  }
-})
-
-export { skillRoutes }
+skillRoutes.get('/api/magic/skills', ctrl.list)
+skillRoutes.put('/api/magic/skills/toggle', ctrl.toggle)
+skillRoutes.put('/api/magic/skills/pin', ctrl.pin_)
+skillRoutes.get('/api/magic/skills/:category/:skill/files', ctrl.listFiles)
+skillRoutes.get('/api/magic/skills/{*path}', ctrl.readFile_)

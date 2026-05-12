@@ -13,7 +13,7 @@ vi.mock('../../packages/server/src/services/logger', () => ({
   },
 }))
 
-import * as service from '../../packages/server/src/services/hermes/hermes-kanban'
+import * as service from '../../packages/server/src/services/magic/hermes-kanban'
 
 describe('hermes kanban service', () => {
   beforeEach(() => {

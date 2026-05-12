@@ -3,23 +3,23 @@ import router from '@/router'
 const DEFAULT_BASE_URL = ''
 
 function getBaseUrl(): string {
-  return localStorage.getItem('hermes_server_url') || DEFAULT_BASE_URL
+  return localStorage.getItem('magic_server_url') || DEFAULT_BASE_URL
 }
 
 export function getApiKey(): string {
-  return localStorage.getItem('hermes_api_key') || ''
+  return localStorage.getItem('magic_api_key') || ''
 }
 
 export function setServerUrl(url: string) {
-  localStorage.setItem('hermes_server_url', url)
+  localStorage.setItem('magic_server_url', url)
 }
 
 export function setApiKey(key: string) {
-  localStorage.setItem('hermes_api_key', key)
+  localStorage.setItem('magic_api_key', key)
 }
 
 export function clearApiKey() {
-  localStorage.removeItem('hermes_api_key')
+  localStorage.removeItem('magic_api_key')
 }
 
 export function hasApiKey(): boolean {

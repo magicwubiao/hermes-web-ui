@@ -10,7 +10,7 @@ vi.mock('../../packages/server/src/services/gateway-bootstrap', () => ({
 const mockFetch = vi.fn()
 vi.stubGlobal('fetch', mockFetch)
 
-import { update } from '../../packages/server/src/controllers/hermes/jobs'
+import { update } from '../../packages/server/src/controllers/magic/jobs'
 
 function createMockCtx(overrides: Record<string, any> = {}) {
   const ctx: any = {

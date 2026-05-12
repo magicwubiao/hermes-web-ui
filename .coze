@@ -1,6 +1,6 @@
 [project]
 sub_id = "b0e03ed5"
-name = "hermes-web-ui"
+name = "magic-web-ui"
 requires = ["nodejs-24"]
 project_type = "web"
 

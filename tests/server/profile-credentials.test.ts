@@ -8,7 +8,7 @@ import {
   disableExclusivePlatformsInConfig,
   EXCLUSIVE_PLATFORMS,
   EXCLUSIVE_PLATFORM_ENV_PATTERNS,
-} from '../../packages/server/src/services/hermes/profile-credentials'
+} from '../../packages/server/src/services/magic/profile-credentials'
 
 let tmpDir: string
 

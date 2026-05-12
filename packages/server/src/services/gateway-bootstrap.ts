@@ -5,8 +5,8 @@ export function getGatewayManagerInstance(): any {
 }
 
 export async function initGatewayManager(): Promise<void> {
-  const { GatewayManager } = await import('./hermes/gateway-manager')
-  const { getActiveProfileName } = await import('./hermes/hermes-profile')
+  const { GatewayManager } = await import('./magic/gateway-manager')
+  const { getActiveProfileName } = await import('./magic/hermes-profile')
   const activeProfile = getActiveProfileName()
   gatewayManager = new GatewayManager(activeProfile)
 

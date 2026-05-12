@@ -19,7 +19,7 @@ import {
   getCompressionSnapshot,
   saveCompressionSnapshot,
   deleteCompressionSnapshot,
-} from '../../db/hermes/compression-snapshot'
+} from '../../db/magic/compression-snapshot'
 
 // ─── Types ───────────────────────────────────────────────
 

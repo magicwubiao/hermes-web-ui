@@ -11,14 +11,14 @@ vi.mock('../../packages/server/src/services/gateway-bootstrap', () => ({
 const { mockUpdateUsage } = vi.hoisted(() => ({
   mockUpdateUsage: vi.fn(),
 }))
-vi.mock('../../packages/server/src/db/hermes/usage-store', () => ({
+vi.mock('../../packages/server/src/db/magic/usage-store', () => ({
   updateUsage: mockUpdateUsage,
 }))
 
 const mockFetch = vi.fn()
 vi.stubGlobal('fetch', mockFetch)
 
-import { proxy, setRunSession } from '../../packages/server/src/routes/hermes/proxy-handler'
+import { proxy, setRunSession } from '../../packages/server/src/routes/magic/proxy-handler'
 
 function createMockCtx(overrides: Record<string, any> = {}) {
   const ctx: any = {

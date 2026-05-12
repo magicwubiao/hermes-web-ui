@@ -1,10 +1,10 @@
 {
-  "name": "hermes-web-ui",
+  "name": "magic-web-ui",
   "version": "0.5.17",
   "description": "Self-hosted AI chat dashboard for Hermes Agent — multi-model web UI with multi-platform integration",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EKKOLearnAI/hermes-web-ui.git"
+    "url": "https://github.com/EKKOLearnAI/magic-web-ui.git"
   },
   "homepage": "https://ekkolearnai.com",
   "license": "BSL-1.1",
@@ -30,7 +30,7 @@
     "typescript"
   ],
   "bin": {
-    "hermes-web-ui": "./bin/hermes-web-ui.mjs"
+    "magic-web-ui": "./bin/magic-web-ui.mjs"
   },
   "scripts": {
     "start": "vite --host --port 8648",
