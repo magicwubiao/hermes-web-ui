@@ -2,8 +2,8 @@
 import { onMounted } from 'vue'
 import { NSpin } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useSettingsStore } from '@/stores/hermes/settings'
-import PlatformSettings from '@/components/hermes/settings/PlatformSettings.vue'
+import { useSettingsStore } from '@/stores/magic/settings'
+import PlatformSettings from '@/components/magic/settings/PlatformSettings.vue'
 
 const settingsStore = useSettingsStore()
 const { t } = useI18n()

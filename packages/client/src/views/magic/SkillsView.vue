@@ -2,9 +2,9 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { NInput } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import SkillList from '@/components/hermes/skills/SkillList.vue'
-import SkillDetail from '@/components/hermes/skills/SkillDetail.vue'
-import { fetchSkills, type SkillCategory, type SkillSource, type SkillInfo } from '@/api/hermes/skills'
+import SkillList from '@/components/magic/skills/SkillList.vue'
+import SkillDetail from '@/components/magic/skills/SkillDetail.vue'
+import { fetchSkills, type SkillCategory, type SkillSource, type SkillInfo } from '@/api/magic/skills'
 
 type SourceFilter = SkillSource | 'modified'
 

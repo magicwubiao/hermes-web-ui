@@ -1,5 +1,5 @@
-import { startRunViaSocket, resumeSession, registerSessionHandlers, unregisterSessionHandlers, getChatRunSocket, type RunEvent, type ContentBlock as ContentBlockImport } from '@/api/hermes/chat'
-import { deleteSession as deleteSessionApi, fetchSession, fetchSessions, type HermesMessage, type SessionSummary } from '@/api/hermes/sessions'
+import { startRunViaSocket, resumeSession, registerSessionHandlers, unregisterSessionHandlers, getChatRunSocket, type RunEvent, type ContentBlock as ContentBlockImport } from '@/api/magic/chat'
+import { deleteSession as deleteSessionApi, fetchSession, fetchSessions, type HermesMessage, type SessionSummary } from '@/api/magic/sessions'
 import { getApiKey } from '@/api/client'
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'

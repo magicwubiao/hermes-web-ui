@@ -147,42 +147,42 @@ export function buildJobUpdateRequest(original: Job, form: JobFormValues): Updat
 }
 
 export async function listJobs(): Promise<Job[]> {
-  const res = await request<{ jobs: Job[] }>('/api/hermes/jobs?include_disabled=true')
+  const res = await request<{ jobs: Job[] }>('/api/magic/jobs?include_disabled=true')
   return res.jobs
 }
 
 export async function getJob(jobId: string): Promise<Job> {
-  return unwrap(await request<{ job: Job }>(`/api/hermes/jobs/${jobId}`))
+  return unwrap(await request<{ job: Job }>(`/api/magic/jobs/${jobId}`))
 }
 
 export async function createJob(data: CreateJobRequest): Promise<Job> {
-  return unwrap(await request<{ job: Job }>('/api/hermes/jobs', {
+  return unwrap(await request<{ job: Job }>('/api/magic/jobs', {
     method: 'POST',
     body: JSON.stringify(data),
   }))
 }
 
 export async function updateJob(jobId: string, data: UpdateJobRequest): Promise<Job> {
-  return unwrap(await request<{ job: Job }>(`/api/hermes/jobs/${jobId}`, {
+  return unwrap(await request<{ job: Job }>(`/api/magic/jobs/${jobId}`, {
     method: 'PATCH',
     body: JSON.stringify(data),
   }))
 }
 
 export async function deleteJob(jobId: string): Promise<{ ok: boolean }> {
-  return request<{ ok: boolean }>(`/api/hermes/jobs/${jobId}`, {
+  return request<{ ok: boolean }>(`/api/magic/jobs/${jobId}`, {
     method: 'DELETE',
   })
 }
 
 export async function pauseJob(jobId: string): Promise<Job> {
-  return unwrap(await request<{ job: Job }>(`/api/hermes/jobs/${jobId}/pause`, { method: 'POST' }))
+  return unwrap(await request<{ job: Job }>(`/api/magic/jobs/${jobId}/pause`, { method: 'POST' }))
 }
 
 export async function resumeJob(jobId: string): Promise<Job> {
-  return unwrap(await request<{ job: Job }>(`/api/hermes/jobs/${jobId}/resume`, { method: 'POST' }))
+  return unwrap(await request<{ job: Job }>(`/api/magic/jobs/${jobId}/resume`, { method: 'POST' }))
 }
 
 export async function runJob(jobId: string): Promise<Job> {
-  return unwrap(await request<{ job: Job }>(`/api/hermes/jobs/${jobId}/run`, { method: 'POST' }))
+  return unwrap(await request<{ job: Job }>(`/api/magic/jobs/${jobId}/run`, { method: 'POST' }))
 }

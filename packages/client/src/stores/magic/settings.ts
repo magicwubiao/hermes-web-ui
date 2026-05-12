@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import * as configApi from '@/api/hermes/config'
-import type { DisplayConfig, AgentConfig, MemoryConfig, SessionResetConfig, PrivacyConfig, ApprovalConfig } from '@/api/hermes/config'
+import * as configApi from '@/api/magic/config'
+import type { DisplayConfig, AgentConfig, MemoryConfig, SessionResetConfig, PrivacyConfig, ApprovalConfig } from '@/api/magic/config'
 
 export const useSettingsStore = defineStore('settings', () => {
   const loading = ref(false)

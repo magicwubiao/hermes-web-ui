@@ -17,9 +17,9 @@ const mockKanbanApi = vi.hoisted(() => ({
   assignTask: vi.fn(),
 }))
 
-vi.mock('@/api/hermes/kanban', () => mockKanbanApi)
+vi.mock('@/api/magic/kanban', () => mockKanbanApi)
 
-import { KANBAN_SELECTED_BOARD_STORAGE_KEY, useKanbanStore } from '@/stores/hermes/kanban'
+import { KANBAN_SELECTED_BOARD_STORAGE_KEY, useKanbanStore } from '@/stores/magic/kanban'
 
 describe('Kanban store', () => {
   beforeEach(() => {

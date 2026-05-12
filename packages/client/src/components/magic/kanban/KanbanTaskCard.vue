@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { NTooltip } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import type { KanbanTask } from '@/api/hermes/kanban'
+import type { KanbanTask } from '@/api/magic/kanban'
 
 const props = defineProps<{
   task: KanbanTask

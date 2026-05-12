@@ -6,7 +6,7 @@ const usageApiMock = vi.hoisted(() => ({
   fetchUsageStats: vi.fn(),
 }))
 
-vi.mock('@/api/hermes/sessions', () => ({
+vi.mock('@/api/magic/sessions', () => ({
   fetchUsageStats: usageApiMock.fetchUsageStats,
 }))
 
@@ -36,7 +36,7 @@ describe('usage store analytics adapter', () => {
       ],
     })
 
-    const { useUsageStore } = await import('@/stores/hermes/usage')
+    const { useUsageStore } = await import('@/stores/magic/usage')
     const store = useUsageStore()
     await store.loadSessions()
 
@@ -67,7 +67,7 @@ describe('usage store analytics adapter', () => {
       daily_usage: [],
     })
 
-    const { useUsageStore } = await import('@/stores/hermes/usage')
+    const { useUsageStore } = await import('@/stores/magic/usage')
     const store = useUsageStore()
     await store.loadSessions(7)
 

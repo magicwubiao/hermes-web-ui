@@ -15,11 +15,11 @@ const mockPrefsStore = vi.hoisted(() => ({
   }),
 }))
 
-vi.mock('@/stores/hermes/settings', () => ({
+vi.mock('@/stores/magic/settings', () => ({
   useSettingsStore: () => mockSettingsStore,
 }))
 
-vi.mock('@/stores/hermes/session-browser-prefs', () => ({
+vi.mock('@/stores/magic/session-browser-prefs', () => ({
   useSessionBrowserPrefsStore: () => mockPrefsStore,
 }))
 
@@ -40,7 +40,7 @@ vi.mock('naive-ui', async () => {
   }
 })
 
-import SessionSettings from '@/components/hermes/settings/SessionSettings.vue'
+import SessionSettings from '@/components/magic/settings/SessionSettings.vue'
 
 describe('SessionSettings', () => {
   beforeEach(() => {

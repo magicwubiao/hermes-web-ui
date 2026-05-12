@@ -6,15 +6,15 @@ import {
   NSpin,
 } from "naive-ui";
 import { useI18n } from "vue-i18n";
-import { useSettingsStore } from "@/stores/hermes/settings";
-import DisplaySettings from "@/components/hermes/settings/DisplaySettings.vue";
-import AgentSettings from "@/components/hermes/settings/AgentSettings.vue";
-import MemorySettings from "@/components/hermes/settings/MemorySettings.vue";
-import SessionSettings from "@/components/hermes/settings/SessionSettings.vue";
-import PrivacySettings from "@/components/hermes/settings/PrivacySettings.vue";
-import ModelSettings from "@/components/hermes/settings/ModelSettings.vue";
-import AccountSettings from "@/components/hermes/settings/AccountSettings.vue";
-import VoiceSettings from "@/components/hermes/settings/VoiceSettings.vue";
+import { useSettingsStore } from "@/stores/magic/settings";
+import DisplaySettings from "@/components/magic/settings/DisplaySettings.vue";
+import AgentSettings from "@/components/magic/settings/AgentSettings.vue";
+import MemorySettings from "@/components/magic/settings/MemorySettings.vue";
+import SessionSettings from "@/components/magic/settings/SessionSettings.vue";
+import PrivacySettings from "@/components/magic/settings/PrivacySettings.vue";
+import ModelSettings from "@/components/magic/settings/ModelSettings.vue";
+import AccountSettings from "@/components/magic/settings/AccountSettings.vue";
+import VoiceSettings from "@/components/magic/settings/VoiceSettings.vue";
 
 const settingsStore = useSettingsStore();
 const { t } = useI18n();

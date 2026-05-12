@@ -2,8 +2,8 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
 import { nextTick } from 'vue'
-import { useProfilesStore } from '@/stores/hermes/profiles'
-import { useSessionBrowserPrefsStore } from '@/stores/hermes/session-browser-prefs'
+import { useProfilesStore } from '@/stores/magic/profiles'
+import { useSessionBrowserPrefsStore } from '@/stores/magic/session-browser-prefs'
 
 describe('session browser prefs store', () => {
   beforeEach(() => {

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { Message, ContentBlock } from "@/stores/hermes/chat";
+import type { Message, ContentBlock } from "@/stores/magic/chat";
 import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from "vue";
 import { useI18n } from "vue-i18n";
 import { useMessage } from "naive-ui";
-import { downloadFile } from "@/api/hermes/download";
+import { downloadFile } from "@/api/magic/download";
 	import { getApiKey } from "@/api/client";
 import { copyToClipboard } from "@/utils/clipboard";
 import MarkdownRenderer from "./MarkdownRenderer.vue";
 import { parseThinking, countThinkingChars } from "@/utils/thinking-parser";
-import { useChatStore } from "@/stores/hermes/chat";
-import { useSettingsStore } from "@/stores/hermes/settings";
+import { useChatStore } from "@/stores/magic/chat";
+import { useSettingsStore } from "@/stores/magic/settings";
 import {
   copyTextToClipboard,
   handleCodeBlockCopyClick,

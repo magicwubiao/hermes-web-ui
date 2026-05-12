@@ -22,7 +22,7 @@ import { proxy, setRunSession } from '../../packages/server/src/routes/magic/pro
 
 function createMockCtx(overrides: Record<string, any> = {}) {
   const ctx: any = {
-    path: '/api/hermes/jobs',
+    path: '/api/magic/jobs',
     method: 'GET',
     headers: { host: 'localhost:8648', 'content-type': 'application/json' },
     query: {},
@@ -72,7 +72,7 @@ describe('Proxy Handler', () => {
     vi.clearAllMocks()
   })
 
-  it('rewrites /api/hermes/v1/* to /v1/*', async () => {
+  it('rewrites /api/magic/v1/* to /v1/*', async () => {
     mockFetch.mockResolvedValue({
       status: 200,
       headers: new Headers({ 'content-type': 'application/json' }),
@@ -80,7 +80,7 @@ describe('Proxy Handler', () => {
       json: () => Promise.resolve({ ok: true }),
     })
 
-    const ctx = createMockCtx({ path: '/api/hermes/v1/runs', search: '' })
+    const ctx = createMockCtx({ path: '/api/magic/v1/runs', search: '' })
     await proxy(ctx)
 
     expect(mockFetch).toHaveBeenCalledOnce()
@@ -89,7 +89,7 @@ describe('Proxy Handler', () => {
     expect(url).not.toContain('/api/hermes')
   })
 
-  it('rewrites /api/hermes/* to /api/*', async () => {
+  it('rewrites /api/magic/* to /api/*', async () => {
     mockFetch.mockResolvedValue({
       status: 200,
       headers: new Headers({ 'content-type': 'application/json' }),
@@ -97,7 +97,7 @@ describe('Proxy Handler', () => {
       json: () => Promise.resolve({ ok: true }),
     })
 
-    const ctx = createMockCtx({ path: '/api/hermes/jobs', search: '' })
+    const ctx = createMockCtx({ path: '/api/magic/jobs', search: '' })
     await proxy(ctx)
 
     const url = mockFetch.mock.calls[0][0]
@@ -202,7 +202,7 @@ describe('POST /v1/runs — session_id capture', () => {
     })
 
     const ctx = createMockCtx({
-      path: '/api/hermes/v1/runs',
+      path: '/api/magic/v1/runs',
       req: { method: 'POST' },
       request: {
         body: { session_id: sessionId, input: 'hello', model: 'gpt-4' },
@@ -226,7 +226,7 @@ describe('POST /v1/runs — session_id capture', () => {
     })
 
     const ctx = createMockCtx({
-      path: '/api/hermes/v1/runs',
+      path: '/api/magic/v1/runs',
       req: { method: 'POST' },
       request: { body: { input: 'hello' } }, // no session_id
     })
@@ -258,7 +258,7 @@ describe('POST /v1/runs — session_id capture', () => {
     })
 
     const ctx = createMockCtx({
-      path: '/api/hermes/v1/runs',
+      path: '/api/magic/v1/runs',
       req: { method: 'POST' },
       request: { body: { session_id: 's1', input: 'test' } },
     })
@@ -299,7 +299,7 @@ describe('SSE stream interception — run.completed', () => {
     })
 
     const ctx = createMockCtx({
-      path: `/api/hermes/v1/runs/${runId}/events`,
+      path: `/api/magic/v1/runs/${runId}/events`,
       search: `?token=test&profile=default`,
     })
 
@@ -332,7 +332,7 @@ describe('SSE stream interception — run.completed', () => {
     })
 
     const ctx = createMockCtx({
-      path: '/api/hermes/v1/runs/unknown-run/events',
+      path: '/api/magic/v1/runs/unknown-run/events',
       search: '',
     })
 
@@ -358,7 +358,7 @@ describe('SSE stream interception — run.completed', () => {
     })
 
     const ctx = createMockCtx({
-      path: `/api/hermes/v1/runs/${runId}/events`,
+      path: `/api/magic/v1/runs/${runId}/events`,
       search: '',
     })
 
@@ -385,7 +385,7 @@ describe('SSE stream interception — run.completed', () => {
     })
 
     const ctx = createMockCtx({
-      path: `/api/hermes/v1/runs/${runId}/events`,
+      path: `/api/magic/v1/runs/${runId}/events`,
       search: '',
     })
 
@@ -420,7 +420,7 @@ describe('SSE stream interception — run.completed', () => {
     })
 
     const ctx = createMockCtx({
-      path: `/api/hermes/v1/runs/${runId}/events`,
+      path: `/api/magic/v1/runs/${runId}/events`,
       search: '',
     })
 

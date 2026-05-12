@@ -3,11 +3,11 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { NButton, NSelect, NSpin, NCollapse, NCollapseItem, NModal, NInput, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
-import KanbanTaskCard from '@/components/hermes/kanban/KanbanTaskCard.vue'
-import KanbanTaskDrawer from '@/components/hermes/kanban/KanbanTaskDrawer.vue'
-import KanbanCreateForm from '@/components/hermes/kanban/KanbanCreateForm.vue'
-import { DEFAULT_KANBAN_BOARD, useKanbanStore } from '@/stores/hermes/kanban'
-import type { KanbanTaskStatus } from '@/api/hermes/kanban'
+import KanbanTaskCard from '@/components/magic/kanban/KanbanTaskCard.vue'
+import KanbanTaskDrawer from '@/components/magic/kanban/KanbanTaskDrawer.vue'
+import KanbanCreateForm from '@/components/magic/kanban/KanbanCreateForm.vue'
+import { DEFAULT_KANBAN_BOARD, useKanbanStore } from '@/stores/magic/kanban'
+import type { KanbanTaskStatus } from '@/api/magic/kanban'
 
 const { t } = useI18n()
 const route = useRoute()

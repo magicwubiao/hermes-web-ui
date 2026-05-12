@@ -33,7 +33,7 @@ export function hasApiKey(): boolean {
 function getActiveProfileName(): string | null {
   try {
     // Dynamic import to avoid circular dependency
-    const { useProfilesStore } = require('@/stores/hermes/profiles')
+    const { useProfilesStore } = require('@/stores/magic/profiles')
     const store = useProfilesStore()
     // Store is the source of truth - it's updated from /api/hermes/profiles
     return store.activeProfileName
@@ -66,9 +66,9 @@ export async function request<T>(path: string, options: RequestInit = {}): Promi
 
   // Global 401 handler — only redirect to login for local BFF endpoints
   // Proxied gateway requests should not trigger logout
-  const isLocalBff = !path.startsWith('/api/hermes/v1/') &&
-    !path.startsWith('/api/hermes/jobs') &&
-    !path.startsWith('/api/hermes/skills')
+  const isLocalBff = !path.startsWith('/api/magic/v1/') &&
+    !path.startsWith('/api/magic/jobs') &&
+    !path.startsWith('/api/magic/skills')
 
   if (res.status === 401 && isLocalBff) {
     clearApiKey()

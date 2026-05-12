@@ -2,9 +2,9 @@
 import { ref, watch, computed } from 'vue'
 import { NSpin, NEmpty, NCollapse, NCollapseItem } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { listCronRuns, readCronRun } from '@/api/hermes/cron-history'
-import type { RunEntry, RunDetail } from '@/api/hermes/cron-history'
-import MarkdownRenderer from '@/components/hermes/chat/MarkdownRenderer.vue'
+import { listCronRuns, readCronRun } from '@/api/magic/cron-history'
+import type { RunEntry, RunDetail } from '@/api/magic/cron-history'
+import MarkdownRenderer from '@/components/magic/chat/MarkdownRenderer.vue'
 
 const props = defineProps<{
   selectedJobId: string | null

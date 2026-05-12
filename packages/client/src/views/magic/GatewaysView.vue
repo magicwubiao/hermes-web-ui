@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import { NSpin, NButton, NTag, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useGatewayStore } from '@/stores/hermes/gateways'
+import { useGatewayStore } from '@/stores/magic/gateways'
 
 const { t } = useI18n()
 const message = useMessage()

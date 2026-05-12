@@ -18,12 +18,12 @@ describe('plugin routes', () => {
     const { pluginRoutes } = await import('../../packages/server/src/routes/magic/plugins')
     const paths = pluginRoutes.stack.map((entry: any) => entry.path)
 
-    expect(paths).toEqual(expect.arrayContaining(['/api/hermes/plugins']))
+    expect(paths).toEqual(expect.arrayContaining(['/api/magic/plugins']))
   })
 
   it('delegates plugin listing to the controller', async () => {
     const { pluginRoutes } = await import('../../packages/server/src/routes/magic/plugins')
-    const layer = pluginRoutes.stack.find((entry: any) => entry.path === '/api/hermes/plugins')
+    const layer = pluginRoutes.stack.find((entry: any) => entry.path === '/api/magic/plugins')
     const ctx: any = { body: null, params: {}, query: {} }
 
     await layer.stack[0](ctx)

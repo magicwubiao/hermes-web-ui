@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
 import { NModal, NForm, NFormItem, NInput, NButton, NSelect, NInputNumber, useMessage } from 'naive-ui'
-import { useJobsStore } from '@/stores/hermes/jobs'
+import { useJobsStore } from '@/stores/magic/jobs'
 import {
   buildJobUpdateRequest,
   getJob,
   jobRepeatToEditValue,
   scheduleToEditableInput,
-} from '@/api/hermes/jobs'
-import type { CreateJobRequest, Job } from '@/api/hermes/jobs'
+} from '@/api/magic/jobs'
+import type { CreateJobRequest, Job } from '@/api/magic/jobs'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

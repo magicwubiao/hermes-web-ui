@@ -4,11 +4,11 @@ import { NDrawer, NDrawerContent, NButton, NSelect, NInput, NSpin, NModal, useMe
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { request } from '@/api/client'
-import { getTask } from '@/api/hermes/kanban'
-import { useKanbanStore } from '@/stores/hermes/kanban'
-import HistoryMessageList from '@/components/hermes/chat/HistoryMessageList.vue'
-import type { Session, Message } from '@/stores/hermes/chat'
-import type { KanbanTaskDetail } from '@/api/hermes/kanban'
+import { getTask } from '@/api/magic/kanban'
+import { useKanbanStore } from '@/stores/magic/kanban'
+import HistoryMessageList from '@/components/magic/chat/HistoryMessageList.vue'
+import type { Session, Message } from '@/stores/magic/chat'
+import type { KanbanTaskDetail } from '@/api/magic/kanban'
 
 const props = defineProps<{
   taskId: string | null
@@ -281,7 +281,7 @@ async function handleAssign() {
               <NSpin v-if="sessionLoading" :size="12" style="margin-left: 6px;" />
             </div>
             <div v-if="showSessions && sessionResults.length > 0" class="session-list">
-              <div v-for="session in sessionResults" :key="session.id" class="session-item" @click="router.push({ name: 'hermes.chat', query: { session: session.id } })">
+              <div v-for="session in sessionResults" :key="session.id" class="session-item" @click="router.push({ name: 'magic.chat', query: { session: session.id } })">
                 <div class="session-title">{{ session.title || session.id }}</div>
                 <div class="session-meta">
                   <span>{{ session.source }}</span>

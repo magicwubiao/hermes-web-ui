@@ -2,7 +2,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { NButton, NSpace, useMessage, useDialog } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useFilesStore } from '@/stores/hermes/files'
+import { useFilesStore } from '@/stores/magic/files'
 import * as monaco from 'monaco-editor'
 
 // Configure Monaco workers using import.meta.url

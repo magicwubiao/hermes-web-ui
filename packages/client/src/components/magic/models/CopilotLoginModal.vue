@@ -2,7 +2,7 @@
 import { ref, onUnmounted } from 'vue'
 import { NModal, NButton, NSpin, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { startCopilotLogin, pollCopilotLogin } from '@/api/hermes/copilot-auth'
+import { startCopilotLogin, pollCopilotLogin } from '@/api/magic/copilot-auth'
 import { copyToClipboard } from '@/utils/clipboard'
 
 const { t } = useI18n()

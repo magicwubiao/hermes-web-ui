@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, watch, computed, onMounted } from 'vue'
 import { NModal, NForm, NFormItem, NInput, NInputNumber, NButton, NSelect, NRadioGroup, NRadioButton, useMessage, useDialog } from 'naive-ui'
-import { useModelsStore } from '@/stores/hermes/models'
+import { useModelsStore } from '@/stores/magic/models'
 import { useI18n } from 'vue-i18n'
 import CodexLoginModal from './CodexLoginModal.vue'
 import NousLoginModal from './NousLoginModal.vue'
 import CopilotLoginModal from './CopilotLoginModal.vue'
-import { checkCopilotToken, enableCopilot, type CopilotTokenSource } from '@/api/hermes/copilot-auth'
+import { checkCopilotToken, enableCopilot, type CopilotTokenSource } from '@/api/magic/copilot-auth'
 
 const { t } = useI18n()
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { renameSession, setSessionWorkspace, batchDeleteSessions, exportSession } from "@/api/hermes/sessions";
-import { useChatStore, type Session } from "@/stores/hermes/chat";
-import { useSessionBrowserPrefsStore } from "@/stores/hermes/session-browser-prefs";
+import { renameSession, setSessionWorkspace, batchDeleteSessions, exportSession } from "@/api/magic/sessions";
+import { useChatStore, type Session } from "@/stores/magic/chat";
+import { useSessionBrowserPrefsStore } from "@/stores/magic/session-browser-prefs";
 import {
   NButton,
   NDropdown,
@@ -575,7 +575,7 @@ async function handleWorkspaceConfirm() {
       </div>
       <div v-if="showSessions" class="session-scope-note">
         <span>{{ t("chat.sessionScopeHint") }}</span>
-        <RouterLink class="session-scope-link" :to="{ name: 'hermes.history' }">
+        <RouterLink class="session-scope-link" :to="{ name: 'magic.history' }">
           {{ t("chat.openHistory") }}
         </RouterLink>
       </div>

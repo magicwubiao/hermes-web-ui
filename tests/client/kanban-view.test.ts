@@ -44,7 +44,7 @@ vi.mock('vue-i18n', () => ({
   }),
 }))
 
-vi.mock('@/stores/hermes/kanban', () => ({
+vi.mock('@/stores/magic/kanban', () => ({
   DEFAULT_KANBAN_BOARD: 'default',
   useKanbanStore: () => ({
     ...storeState,
@@ -60,7 +60,7 @@ vi.mock('@/stores/hermes/kanban', () => ({
   }),
 }))
 
-vi.mock('@/components/hermes/kanban/KanbanTaskCard.vue', () => ({
+vi.mock('@/components/magic/kanban/KanbanTaskCard.vue', () => ({
   default: defineComponent({
     name: 'KanbanTaskCard',
     props: { task: { type: Object, required: true } },
@@ -68,7 +68,7 @@ vi.mock('@/components/hermes/kanban/KanbanTaskCard.vue', () => ({
   }),
 }))
 
-vi.mock('@/components/hermes/kanban/KanbanTaskDrawer.vue', () => ({
+vi.mock('@/components/magic/kanban/KanbanTaskDrawer.vue', () => ({
   default: defineComponent({
     name: 'KanbanTaskDrawer',
     emits: ['updated', 'close'],
@@ -76,7 +76,7 @@ vi.mock('@/components/hermes/kanban/KanbanTaskDrawer.vue', () => ({
   }),
 }))
 
-vi.mock('@/components/hermes/kanban/KanbanCreateForm.vue', () => ({
+vi.mock('@/components/magic/kanban/KanbanCreateForm.vue', () => ({
   default: defineComponent({
     name: 'KanbanCreateForm',
     emits: ['created', 'close'],
@@ -125,7 +125,7 @@ vi.mock('naive-ui', () => ({
   }),
 }))
 
-import KanbanView from '@/views/hermes/KanbanView.vue'
+import KanbanView from '@/views/magic/KanbanView.vue'
 
 describe('KanbanView', () => {
   beforeEach(() => {

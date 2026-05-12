@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import multiavatar from '@multiavatar/multiavatar'
 import MarkdownRenderer from '../chat/MarkdownRenderer.vue'
-import type { ChatMessage, RoomAgent } from '@/api/hermes/group-chat'
+import type { ChatMessage, RoomAgent } from '@/api/magic/group-chat'
 
 const props = defineProps<{
     message: ChatMessage

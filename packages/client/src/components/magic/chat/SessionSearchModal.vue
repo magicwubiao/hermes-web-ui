@@ -3,8 +3,8 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { NButton, NInput, NModal, NSpin, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { fetchSessions, searchSessions, type SessionSearchResult, type SessionSummary } from '@/api/hermes/sessions'
-import { useChatStore } from '@/stores/hermes/chat'
+import { fetchSessions, searchSessions, type SessionSearchResult, type SessionSummary } from '@/api/magic/sessions'
+import { useChatStore } from '@/stores/magic/chat'
 import { useSessionSearch } from '@/composables/useSessionSearch'
 
 const { t } = useI18n()
@@ -126,8 +126,8 @@ async function openItem(item: SearchItem) {
 
   await ensureChatSessionsLoaded()
   await chatStore.switchSession(item.id, messageId)
-  if (router.currentRoute.value.name !== 'hermes.chat') {
-    await router.push({ name: 'hermes.chat' })
+  if (router.currentRoute.value.name !== 'magic.chat') {
+    await router.push({ name: 'magic.chat' })
   }
 }
 

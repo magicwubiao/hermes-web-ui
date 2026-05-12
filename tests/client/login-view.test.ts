@@ -51,7 +51,7 @@ describe('LoginView token login', () => {
     await wrapper.find('form.login-form').trigger('submit')
 
     expect(mockFetch).toHaveBeenCalledOnce()
-    expect(mockFetch).toHaveBeenCalledWith('/api/hermes/sessions', {
+    expect(mockFetch).toHaveBeenCalledWith('/api/magic/sessions', {
       headers: { Authorization: 'Bearer secret-token' },
     })
     expect(mockSetApiKey).toHaveBeenCalledWith('secret-token')
@@ -65,7 +65,7 @@ describe('LoginView token login', () => {
     await wrapper.find('input.login-input').setValue('bad-token')
     await wrapper.find('form.login-form').trigger('submit')
 
-    expect(mockFetch).toHaveBeenCalledWith('/api/hermes/sessions', {
+    expect(mockFetch).toHaveBeenCalledWith('/api/magic/sessions', {
       headers: { Authorization: 'Bearer bad-token' },
     })
     expect(wrapper.find('.login-error').text()).toBe('login.invalidToken')

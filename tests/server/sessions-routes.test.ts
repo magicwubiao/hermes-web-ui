@@ -58,25 +58,25 @@ describe('session routes', () => {
     const paths = sessionRoutes.stack.map((entry: any) => entry.path)
 
     expect(paths).toEqual(expect.arrayContaining([
-      '/api/hermes/sessions/conversations',
-      '/api/hermes/sessions/conversations/:id/messages',
-      '/api/hermes/sessions/conversations/:id/messages/paginated',
-      '/api/hermes/sessions',
-      '/api/hermes/search/sessions',
-      '/api/hermes/sessions/search',
-      '/api/hermes/sessions/usage',
-      '/api/hermes/usage/stats',
-      '/api/hermes/sessions/context-length',
-      '/api/hermes/sessions/:id',
-      '/api/hermes/sessions/:id/export',
-      '/api/hermes/sessions/:id/usage',
-      '/api/hermes/sessions/:id/rename',
+      '/api/magic/sessions/conversations',
+      '/api/magic/sessions/conversations/:id/messages',
+      '/api/magic/sessions/conversations/:id/messages/paginated',
+      '/api/magic/sessions',
+      '/api/magic/search/sessions',
+      '/api/magic/sessions/search',
+      '/api/magic/sessions/usage',
+      '/api/magic/usage/stats',
+      '/api/magic/sessions/context-length',
+      '/api/magic/sessions/:id',
+      '/api/magic/sessions/:id/export',
+      '/api/magic/sessions/:id/usage',
+      '/api/magic/sessions/:id/rename',
     ]))
   })
 
   it('delegates session search to the controller', async () => {
     const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
-    const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/search/sessions')
+    const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/magic/search/sessions')
     const handler = layer.stack[0]
     const ctx: any = { query: { q: 'docker', limit: '8' }, body: null, params: {} }
 
@@ -88,7 +88,7 @@ describe('session routes', () => {
 
   it('keeps the legacy search path wired to the same controller', async () => {
     const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
-    const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/search')
+    const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/magic/sessions/search')
     const handler = layer.stack[0]
     const ctx: any = { query: { q: 'docker' }, body: null, params: {} }
 
@@ -100,8 +100,8 @@ describe('session routes', () => {
 
   it('delegates conversations list and detail routes', async () => {
     const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
-    const listLayer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/conversations')
-    const detailLayer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/conversations/:id/messages')
+    const listLayer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/magic/sessions/conversations')
+    const detailLayer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/magic/sessions/conversations/:id/messages')
 
     const listCtx: any = { query: {}, body: null, params: {} }
     await listLayer.stack[0](listCtx)
@@ -116,7 +116,7 @@ describe('session routes', () => {
 
   it('delegates session export to the controller', async () => {
     const { sessionRoutes } = await import('../../packages/server/src/routes/magic/sessions')
-    const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/hermes/sessions/:id/export')
+    const layer = sessionRoutes.stack.find((entry: any) => entry.path === '/api/magic/sessions/:id/export')
     const handler = layer.stack[0]
     const ctx: any = { params: { id: 'session-abc' }, query: {}, body: null, set: vi.fn() }
 

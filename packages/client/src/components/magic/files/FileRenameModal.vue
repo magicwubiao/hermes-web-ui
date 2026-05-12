@@ -2,8 +2,8 @@
 import { ref, watch, computed } from 'vue'
 import { NModal, NInput, NButton, NSpace, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useFilesStore } from '@/stores/hermes/files'
-import type { FileEntry } from '@/api/hermes/files'
+import { useFilesStore } from '@/stores/magic/files'
+import type { FileEntry } from '@/api/magic/files'
 
 const { t } = useI18n()
 const message = useMessage()

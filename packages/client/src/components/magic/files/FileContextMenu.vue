@@ -2,9 +2,9 @@
 import { ref, nextTick } from 'vue'
 import { NDropdown, useMessage, useDialog } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useFilesStore, isTextFile, isImageFile, isMarkdownFile } from '@/stores/hermes/files'
-import { downloadFile } from '@/api/hermes/download'
-import type { FileEntry } from '@/api/hermes/files'
+import { useFilesStore, isTextFile, isImageFile, isMarkdownFile } from '@/stores/magic/files'
+import { downloadFile } from '@/api/magic/download'
+import type { FileEntry } from '@/api/magic/files'
 import { copyToClipboard } from '@/utils/clipboard'
 
 const { t } = useI18n()

@@ -18,8 +18,8 @@ vi.mock('naive-ui', () => ({
   }),
 }))
 
-import MessageItem from '@/components/hermes/chat/MessageItem.vue'
-import type { Message } from '@/stores/hermes/chat'
+import MessageItem from '@/components/magic/chat/MessageItem.vue'
+import type { Message } from '@/stores/magic/chat'
 
 describe('MessageItem tool details', () => {
   beforeEach(() => {

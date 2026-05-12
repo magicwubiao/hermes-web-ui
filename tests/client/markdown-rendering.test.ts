@@ -36,12 +36,12 @@ vi.mock('naive-ui', () => ({
   }),
 }))
 
-vi.mock('@/api/hermes/download', () => ({
+vi.mock('@/api/magic/download', () => ({
   downloadFile: vi.fn(),
-  getDownloadUrl: (path: string) => `http://test.local/api/hermes/download?path=${encodeURIComponent(path)}`,
+  getDownloadUrl: (path: string) => `http://test.local/api/magic/download?path=${encodeURIComponent(path)}`,
 }))
 
-import MarkdownRenderer from '@/components/hermes/chat/MarkdownRenderer.vue'
+import MarkdownRenderer from '@/components/magic/chat/MarkdownRenderer.vue'
 
 describe('MarkdownRenderer', () => {
   afterEach(() => {
@@ -232,7 +232,7 @@ describe('MarkdownRenderer', () => {
 
     const video = wrapper.find('video.markdown-video')
     expect(video.exists()).toBe(true)
-    expect(video.attributes('src')).toContain('/api/hermes/download?path=')
+    expect(video.attributes('src')).toContain('/api/magic/download?path=')
     const src = new URL(video.attributes('src'))
     expect(decodeURIComponent(src.searchParams.get('path') || '')).toBe('/Users/ekko/Desktop/录屏2026-05-08 15.19.46.mov')
     expect(wrapper.find('.markdown-video-footer .att-name').text()).toBe('录屏2026-05-08 15.19.46.mov')

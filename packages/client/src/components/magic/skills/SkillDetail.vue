@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import MarkdownRenderer from '@/components/hermes/chat/MarkdownRenderer.vue'
-import { fetchSkillContent, fetchSkillFiles, pinSkillApi, type SkillFileEntry } from '@/api/hermes/skills'
+import MarkdownRenderer from '@/components/magic/chat/MarkdownRenderer.vue'
+import { fetchSkillContent, fetchSkillFiles, pinSkillApi, type SkillFileEntry } from '@/api/magic/skills'
 import { useI18n } from 'vue-i18n'
 import { useMessage } from 'naive-ui'
 

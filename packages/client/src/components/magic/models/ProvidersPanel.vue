@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ProviderCard from './ProviderCard.vue'
-import { useModelsStore } from '@/stores/hermes/models'
+import { useModelsStore } from '@/stores/magic/models'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

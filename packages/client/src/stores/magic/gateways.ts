@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { fetchGateways, startGateway, stopGateway, type GatewayStatus } from '@/api/hermes/gateways'
+import { fetchGateways, startGateway, stopGateway, type GatewayStatus } from '@/api/magic/gateways'
 
 export const useGatewayStore = defineStore('gateways', () => {
   const gateways = ref<GatewayStatus[]>([])

@@ -20,12 +20,12 @@ export interface HermesProfileDetail {
 }
 
 export async function fetchProfiles(): Promise<HermesProfile[]> {
-  const res = await request<{ profiles: HermesProfile[] }>('/api/hermes/profiles')
+  const res = await request<{ profiles: HermesProfile[] }>('/api/magic/profiles')
   return res.profiles
 }
 
 export async function fetchProfileDetail(name: string): Promise<HermesProfileDetail> {
-  const res = await request<{ profile: HermesProfileDetail }>(`/api/hermes/profiles/${encodeURIComponent(name)}`)
+  const res = await request<{ profile: HermesProfileDetail }>(`/api/magic/profiles/${encodeURIComponent(name)}`)
   return res.profile
 }
 
@@ -47,7 +47,7 @@ export async function createProfile(name: string, clone?: boolean): Promise<Crea
       disabledPlatforms?: string[]
       strippedConfigCredentials?: string[]
       error?: string
-    }>('/api/hermes/profiles', {
+    }>('/api/magic/profiles', {
       method: 'POST',
       body: JSON.stringify({ name, clone }),
     })
@@ -65,7 +65,7 @@ export async function createProfile(name: string, clone?: boolean): Promise<Crea
 
 export async function deleteProfile(name: string): Promise<boolean> {
   try {
-    await request(`/api/hermes/profiles/${encodeURIComponent(name)}`, { method: 'DELETE' })
+    await request(`/api/magic/profiles/${encodeURIComponent(name)}`, { method: 'DELETE' })
     return true
   } catch {
     return false
@@ -74,7 +74,7 @@ export async function deleteProfile(name: string): Promise<boolean> {
 
 export async function renameProfile(name: string, newName: string): Promise<boolean> {
   try {
-    await request(`/api/hermes/profiles/${encodeURIComponent(name)}/rename`, {
+    await request(`/api/magic/profiles/${encodeURIComponent(name)}/rename`, {
       method: 'POST',
       body: JSON.stringify({ new_name: newName }),
     })
@@ -86,7 +86,7 @@ export async function renameProfile(name: string, newName: string): Promise<bool
 
 export async function switchProfile(name: string): Promise<boolean> {
   try {
-    await request('/api/hermes/profiles/active', {
+    await request('/api/magic/profiles/active', {
       method: 'PUT',
       body: JSON.stringify({ name }),
     })
@@ -103,7 +103,7 @@ export async function exportProfile(name: string): Promise<boolean> {
     const headers: Record<string, string> = {}
     if (token) headers['Authorization'] = `Bearer ${token}`
 
-    const res = await fetch(`${baseUrl}/api/hermes/profiles/${encodeURIComponent(name)}/export`, {
+    const res = await fetch(`${baseUrl}/api/magic/profiles/${encodeURIComponent(name)}/export`, {
       method: 'POST',
       headers,
     })
@@ -132,7 +132,7 @@ export async function importProfile(file: File): Promise<boolean> {
     const formData = new FormData()
     formData.append('file', file)
 
-    const res = await fetch(`${baseUrl}/api/hermes/profiles/import`, {
+    const res = await fetch(`${baseUrl}/api/magic/profiles/import`, {
       method: 'POST',
       headers,
       body: formData,

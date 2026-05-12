@@ -11,7 +11,7 @@ vi.mock('highlight.js', () => ({
   default: highlightJsMock,
 }))
 
-import { normalizeHighlightLanguage, renderHighlightedCodeBlock } from '@/components/hermes/chat/highlight'
+import { normalizeHighlightLanguage, renderHighlightedCodeBlock } from '@/components/magic/chat/highlight'
 
 describe('highlight helper', () => {
   beforeEach(() => {

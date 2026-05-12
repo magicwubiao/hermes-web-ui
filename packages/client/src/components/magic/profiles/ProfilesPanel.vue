@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ProfileCard from './ProfileCard.vue'
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import { useProfilesStore } from '@/stores/magic/profiles'
 import { useI18n } from 'vue-i18n'
 
 defineEmits<{ rename: [name: string] }>()

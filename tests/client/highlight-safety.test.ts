@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { renderHighlightedCodeBlock } from '@/components/hermes/chat/highlight'
+import { renderHighlightedCodeBlock } from '@/components/magic/chat/highlight'
 
 describe('highlight safety', () => {
   it('escapes large unknown code content', () => {

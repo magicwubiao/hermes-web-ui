@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { NModal, NForm, NFormItem, NInput, NButton, NText, useMessage } from 'naive-ui'
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import { useProfilesStore } from '@/stores/magic/profiles'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ profileName: string }>()

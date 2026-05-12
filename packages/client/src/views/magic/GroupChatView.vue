@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import GroupChatPanel from '@/components/hermes/group-chat/GroupChatPanel.vue'
-import { useGroupChatStore } from '@/stores/hermes/group-chat'
+import GroupChatPanel from '@/components/magic/group-chat/GroupChatPanel.vue'
+import { useGroupChatStore } from '@/stores/magic/group-chat'
 
 const store = useGroupChatStore()
 

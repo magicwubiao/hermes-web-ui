@@ -108,7 +108,7 @@ describe('Auth Service', () => {
     it('allows all requests when auth is disabled (null token)', async () => {
       const { requireAuth } = await loadAuth()
       const middleware = requireAuth(null)
-      const ctx = createMockCtx('/api/hermes/sessions')
+      const ctx = createMockCtx('/api/magic/sessions')
       const next = vi.fn(async () => {})
 
       await middleware(ctx, next)
@@ -168,7 +168,7 @@ describe('Auth Service', () => {
     it('rejects request without auth header for protected API routes', async () => {
       const { requireAuth } = await loadAuth()
       const middleware = requireAuth('secret')
-      const ctx = createMockCtx('/api/hermes/sessions')
+      const ctx = createMockCtx('/api/magic/sessions')
       const next = vi.fn(async () => {})
 
       await middleware(ctx, next)
@@ -180,7 +180,7 @@ describe('Auth Service', () => {
     it('rejects request with the wrong bearer token', async () => {
       const { requireAuth } = await loadAuth()
       const middleware = requireAuth('secret')
-      const ctx = createMockCtx('/api/hermes/sessions', { authorization: 'Bearer wrong' })
+      const ctx = createMockCtx('/api/magic/sessions', { authorization: 'Bearer wrong' })
       const next = vi.fn(async () => {})
 
       await middleware(ctx, next)
@@ -192,7 +192,7 @@ describe('Auth Service', () => {
     it('allows request with the correct bearer token', async () => {
       const { requireAuth } = await loadAuth()
       const middleware = requireAuth('secret')
-      const ctx = createMockCtx('/api/hermes/sessions', { authorization: 'Bearer secret' })
+      const ctx = createMockCtx('/api/magic/sessions', { authorization: 'Bearer secret' })
       const next = vi.fn(async () => {})
 
       await middleware(ctx, next)
@@ -203,7 +203,7 @@ describe('Auth Service', () => {
     it('allows request with the correct query token', async () => {
       const { requireAuth } = await loadAuth()
       const middleware = requireAuth('secret')
-      const ctx = createMockCtx('/api/hermes/sessions', {}, { token: 'secret' })
+      const ctx = createMockCtx('/api/magic/sessions', {}, { token: 'secret' })
       const next = vi.fn(async () => {})
 
       await middleware(ctx, next)
@@ -214,7 +214,7 @@ describe('Auth Service', () => {
     it('returns 401 JSON on auth failure', async () => {
       const { requireAuth } = await loadAuth()
       const middleware = requireAuth('secret')
-      const ctx = createMockCtx('/api/hermes/sessions', { authorization: 'Bearer wrong' })
+      const ctx = createMockCtx('/api/magic/sessions', { authorization: 'Bearer wrong' })
       const next = vi.fn(async () => {})
 
       await middleware(ctx, next)

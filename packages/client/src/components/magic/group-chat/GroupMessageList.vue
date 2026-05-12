@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, nextTick } from 'vue'
-import { useGroupChatStore } from '@/stores/hermes/group-chat'
+import { useGroupChatStore } from '@/stores/magic/group-chat'
 import GroupMessageItem from './GroupMessageItem.vue'
 
 const store = useGroupChatStore()

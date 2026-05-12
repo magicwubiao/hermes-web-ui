@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { NModal, NButton, NUpload, NSpace, useMessage } from 'naive-ui'
 import type { UploadFileInfo } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useFilesStore } from '@/stores/hermes/files'
+import { useFilesStore } from '@/stores/magic/files'
 
 const { t } = useI18n()
 const message = useMessage()

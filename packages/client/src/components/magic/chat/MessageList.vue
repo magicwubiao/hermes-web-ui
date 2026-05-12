@@ -2,7 +2,7 @@
 import { ref, computed, watch, nextTick } from "vue";
 import { useI18n } from "vue-i18n";
 import MessageItem from "./MessageItem.vue";
-import { useChatStore } from "@/stores/hermes/chat";
+import { useChatStore } from "@/stores/magic/chat";
 import thinkingVideoLight from "@/assets/thinking-light.mp4";
 import thinkingVideoDark from "@/assets/thinking-dark.mp4";
 import { useTheme } from "@/composables/useTheme";

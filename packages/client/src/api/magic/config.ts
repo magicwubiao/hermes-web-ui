@@ -65,14 +65,14 @@ export interface AppConfig {
 
 export async function fetchConfig(sections?: string[]): Promise<AppConfig> {
   const query = sections ? `?sections=${sections.join(',')}` : ''
-  return request<AppConfig>(`/api/hermes/config${query}`)
+  return request<AppConfig>(`/api/magic/config${query}`)
 }
 
 export async function updateConfigSection(
   section: string,
   values: Record<string, any>,
 ): Promise<void> {
-  await request('/api/hermes/config', {
+  await request('/api/magic/config', {
     method: 'PUT',
     body: JSON.stringify({ section, values }),
   })
@@ -82,7 +82,7 @@ export async function saveCredentials(
   platform: string,
   values: Record<string, any>,
 ): Promise<void> {
-  await request('/api/hermes/config/credentials', {
+  await request('/api/magic/config/credentials', {
     method: 'PUT',
     body: JSON.stringify({ platform, values }),
   })
@@ -101,11 +101,11 @@ export interface WeixinQrStatus {
 }
 
 export async function fetchWeixinQrCode(): Promise<WeixinQrCode> {
-  return request<WeixinQrCode>('/api/hermes/weixin/qrcode')
+  return request<WeixinQrCode>('/api/magic/weixin/qrcode')
 }
 
 export async function pollWeixinQrStatus(qrcode: string): Promise<WeixinQrStatus> {
-  return request<WeixinQrStatus>(`/api/hermes/weixin/qrcode/status?qrcode=${encodeURIComponent(qrcode)}`)
+  return request<WeixinQrStatus>(`/api/magic/weixin/qrcode/status?qrcode=${encodeURIComponent(qrcode)}`)
 }
 
 export async function saveWeixinCredentials(data: {
@@ -113,7 +113,7 @@ export async function saveWeixinCredentials(data: {
   token: string
   base_url?: string
 }): Promise<void> {
-  await request('/api/hermes/weixin/save', {
+  await request('/api/magic/weixin/save', {
     method: 'POST',
     body: JSON.stringify(data),
   })

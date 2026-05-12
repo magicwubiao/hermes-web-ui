@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { NInput, NButton, NSpin, NEmpty, useMessage } from 'naive-ui'
-import { useModelsStore } from '@/stores/hermes/models'
-import { updateProvider } from '@/api/hermes/system'
+import { useModelsStore } from '@/stores/magic/models'
+import { updateProvider } from '@/api/magic/system'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

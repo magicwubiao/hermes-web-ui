@@ -46,40 +46,40 @@ export interface SkillsData {
 }
 
 export async function fetchSkills(): Promise<SkillsData> {
-  const res = await request<SkillListResponse>('/api/hermes/skills')
+  const res = await request<SkillListResponse>('/api/magic/skills')
   return { categories: res.categories, archived: res.archived ?? [] }
 }
 
 export async function fetchSkillContent(skillPath: string): Promise<string> {
-  const res = await request<{ content: string }>(`/api/hermes/skills/${skillPath}`)
+  const res = await request<{ content: string }>(`/api/magic/skills/${skillPath}`)
   return res.content
 }
 
 export async function fetchSkillFiles(category: string, skill: string): Promise<SkillFileEntry[]> {
-  const res = await request<{ files: SkillFileEntry[] }>(`/api/hermes/skills/${category}/${skill}/files`)
+  const res = await request<{ files: SkillFileEntry[] }>(`/api/magic/skills/${category}/${skill}/files`)
   return res.files
 }
 
 export async function fetchMemory(): Promise<MemoryData> {
-  return request<MemoryData>('/api/hermes/memory')
+  return request<MemoryData>('/api/magic/memory')
 }
 
 export async function saveMemory(section: 'memory' | 'user' | 'soul', content: string): Promise<void> {
-  await request('/api/hermes/memory', {
+  await request('/api/magic/memory', {
     method: 'POST',
     body: JSON.stringify({ section, content }),
   })
 }
 
 export async function toggleSkill(name: string, enabled: boolean): Promise<void> {
-  await request('/api/hermes/skills/toggle', {
+  await request('/api/magic/skills/toggle', {
     method: 'PUT',
     body: JSON.stringify({ name, enabled }),
   })
 }
 
 export async function pinSkillApi(name: string, pinned: boolean): Promise<void> {
-  await request('/api/hermes/skills/pin', {
+  await request('/api/magic/skills/pin', {
     method: 'PUT',
     body: JSON.stringify({ name, pinned }),
   })

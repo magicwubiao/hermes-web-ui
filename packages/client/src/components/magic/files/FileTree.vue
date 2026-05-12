@@ -2,8 +2,8 @@
 import { ref, onMounted } from 'vue'
 import { NTree } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useFilesStore } from '@/stores/hermes/files'
-import * as filesApi from '@/api/hermes/files'
+import { useFilesStore } from '@/stores/magic/files'
+import * as filesApi from '@/api/magic/files'
 import type { TreeOption } from 'naive-ui'
 
 const { t } = useI18n()

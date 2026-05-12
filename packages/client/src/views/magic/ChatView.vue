@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import ChatPanel from '@/components/hermes/chat/ChatPanel.vue'
-import { useAppStore } from '@/stores/hermes/app'
-import { useChatStore } from '@/stores/hermes/chat'
-import { useProfilesStore } from '@/stores/hermes/profiles'
-import { useSettingsStore } from '@/stores/hermes/settings'
+import ChatPanel from '@/components/magic/chat/ChatPanel.vue'
+import { useAppStore } from '@/stores/magic/app'
+import { useChatStore } from '@/stores/magic/chat'
+import { useProfilesStore } from '@/stores/magic/profiles'
+import { useSettingsStore } from '@/stores/magic/settings'
 
 const appStore = useAppStore()
 const chatStore = useChatStore()

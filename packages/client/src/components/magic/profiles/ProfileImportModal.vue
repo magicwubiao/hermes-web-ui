@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { NModal, NUpload, NButton, useMessage } from 'naive-ui'
 import type { UploadFileInfo } from 'naive-ui'
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import { useProfilesStore } from '@/stores/magic/profiles'
 import { useI18n } from 'vue-i18n'
 
 const emit = defineEmits<{

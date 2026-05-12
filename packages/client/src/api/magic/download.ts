@@ -8,8 +8,8 @@ export function getDownloadUrl(filePath: string, fileName?: string): string {
   const base = getBaseUrlValue()
 
   // Guard: if filePath is already a full download URL, extract the real path
-  // to prevent double-wrapping (/api/hermes/download?path=/api/hermes/download?path=...)
-  if (filePath.startsWith('/api/hermes/download?')) {
+  // to prevent double-wrapping (/api/magic/download?path=/api/magic/download?path=...)
+  if (filePath.startsWith('/api/magic/download?')) {
     try {
       const parsed = new URL(filePath, 'http://localhost')
       const realPath = parsed.searchParams.get('path')
@@ -29,7 +29,7 @@ export function getDownloadUrl(filePath: string, fileName?: string): string {
   }
   const token = getApiKey()
   if (token) params.set('token', token)
-  return `${base}/api/hermes/download?${params.toString()}`
+  return `${base}/api/magic/download?${params.toString()}`
 }
 
 /**

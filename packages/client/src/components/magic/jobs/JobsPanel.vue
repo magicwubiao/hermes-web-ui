@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import JobCard from './JobCard.vue'
-import { useJobsStore } from '@/stores/hermes/jobs'
+import { useJobsStore } from '@/stores/magic/jobs'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{

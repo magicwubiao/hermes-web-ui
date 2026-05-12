@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { fetchConversationDetail, fetchConversationSummaries, type ConversationDetail, type ConversationSummary } from '@/api/hermes/conversations'
+import { fetchConversationDetail, fetchConversationSummaries, type ConversationDetail, type ConversationSummary } from '@/api/magic/conversations'
 import { formatTimestampSeconds, getSourceLabel } from '@/shared/session-display'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'

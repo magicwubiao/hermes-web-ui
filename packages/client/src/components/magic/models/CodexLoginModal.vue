@@ -2,7 +2,7 @@
 import { ref, onUnmounted } from 'vue'
 import { NModal, NButton, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { startCodexLogin, pollCodexLogin } from '@/api/hermes/codex-auth'
+import { startCodexLogin, pollCodexLogin } from '@/api/magic/codex-auth'
 import { copyToClipboard } from '@/utils/clipboard'
 
 const { t } = useI18n()

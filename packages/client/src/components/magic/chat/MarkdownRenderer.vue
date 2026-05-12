@@ -14,7 +14,7 @@ import {
   isMermaidFence,
   renderMermaidPlaceholder,
 } from './mermaidRenderer'
-import { downloadFile, getDownloadUrl } from '@/api/hermes/download'
+import { downloadFile, getDownloadUrl } from '@/api/magic/download'
 
 const props = withDefaults(defineProps<{
     content: string

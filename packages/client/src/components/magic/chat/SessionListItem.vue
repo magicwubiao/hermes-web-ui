@@ -2,7 +2,7 @@
 import { ref, onUnmounted } from 'vue'
 import { NPopconfirm, NCheckbox } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import type { Session } from '@/stores/hermes/chat'
+import type { Session } from '@/stores/magic/chat'
 import { formatTimestampMs } from '@/shared/session-display'
 
 const props = defineProps<{

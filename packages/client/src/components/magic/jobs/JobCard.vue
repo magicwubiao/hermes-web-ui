@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { NButton, NTooltip, useMessage } from 'naive-ui'
-import type { Job } from '@/api/hermes/jobs'
-import { scheduleToDisplayText } from '@/api/hermes/jobs'
-import { useJobsStore } from '@/stores/hermes/jobs'
+import type { Job } from '@/api/magic/jobs'
+import { scheduleToDisplayText } from '@/api/magic/jobs'
+import { useJobsStore } from '@/stores/magic/jobs'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{

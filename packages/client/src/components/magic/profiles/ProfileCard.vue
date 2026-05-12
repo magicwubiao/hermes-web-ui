@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { NButton, NTag, NSpin, useMessage, useDialog } from 'naive-ui'
-import type { HermesProfile, HermesProfileDetail } from '@/api/hermes/profiles'
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import type { HermesProfile, HermesProfileDetail } from '@/api/magic/profiles'
+import { useProfilesStore } from '@/stores/magic/profiles'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ profile: HermesProfile }>()

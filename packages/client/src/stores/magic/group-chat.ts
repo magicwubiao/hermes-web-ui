@@ -18,7 +18,7 @@ import {
     listAgents,
     removeAgent,
     deleteRoom as deleteRoomApi,
-} from '@/api/hermes/group-chat'
+} from '@/api/magic/group-chat'
 
 export const useGroupChatStore = defineStore('groupChat', () => {
     // ─── State ─────────────────────────────────────────────

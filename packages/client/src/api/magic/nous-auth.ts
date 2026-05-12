@@ -17,13 +17,13 @@ export interface NousStatusResult {
 }
 
 export async function startNousLogin(): Promise<NousStartResult> {
-  return request<NousStartResult>('/api/hermes/auth/nous/start', { method: 'POST' })
+  return request<NousStartResult>('/api/magic/auth/nous/start', { method: 'POST' })
 }
 
 export async function pollNousLogin(sessionId: string): Promise<NousPollResult> {
-  return request<NousPollResult>(`/api/hermes/auth/nous/poll/${sessionId}`)
+  return request<NousPollResult>(`/api/magic/auth/nous/poll/${sessionId}`)
 }
 
 export async function getNousAuthStatus(): Promise<NousStatusResult> {
-  return request<NousStatusResult>('/api/hermes/auth/nous/status')
+  return request<NousStatusResult>('/api/magic/auth/nous/status')
 }

@@ -45,7 +45,7 @@ export async function fetchConversationSummaries(params: { humanOnly?: boolean; 
   if (params.source) query.set('source', params.source)
   if (params.limit != null) query.set('limit', String(params.limit))
   const suffix = query.toString() ? `?${query.toString()}` : ''
-  const res = await request<{ sessions: ConversationSummary[] }>(`/api/hermes/sessions/conversations${suffix}`)
+  const res = await request<{ sessions: ConversationSummary[] }>(`/api/magic/sessions/conversations${suffix}`)
   return res.sessions
 }
 
@@ -54,5 +54,5 @@ export async function fetchConversationDetail(sessionId: string, params: { human
   if (params.humanOnly === false) query.set('humanOnly', 'false')
   if (params.source) query.set('source', params.source)
   const suffix = query.toString() ? `?${query.toString()}` : ''
-  return request<ConversationDetail>(`/api/hermes/sessions/conversations/${encodeURIComponent(sessionId)}/messages${suffix}`)
+  return request<ConversationDetail>(`/api/magic/sessions/conversations/${encodeURIComponent(sessionId)}/messages${suffix}`)
 }

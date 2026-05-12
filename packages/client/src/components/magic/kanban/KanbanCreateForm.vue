@@ -2,7 +2,7 @@
 import { ref, computed } from 'vue'
 import { NModal, NForm, NFormItem, NInput, NSelect, NButton, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useKanbanStore } from '@/stores/hermes/kanban'
+import { useKanbanStore } from '@/stores/magic/kanban'
 
 const emit = defineEmits<{
   close: []

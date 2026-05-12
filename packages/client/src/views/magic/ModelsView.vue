@@ -2,11 +2,11 @@
 import { ref, onMounted } from 'vue'
 import { NButton, NSpin } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import ProvidersPanel from '@/components/hermes/models/ProvidersPanel.vue'
-import ProviderFormModal from '@/components/hermes/models/ProviderFormModal.vue'
-import { useModelsStore } from '@/stores/hermes/models'
-import { useAppStore } from '@/stores/hermes/app'
-import { checkCopilotToken } from '@/api/hermes/copilot-auth'
+import ProvidersPanel from '@/components/magic/models/ProvidersPanel.vue'
+import ProviderFormModal from '@/components/magic/models/ProviderFormModal.vue'
+import { useModelsStore } from '@/stores/magic/models'
+import { useAppStore } from '@/stores/magic/app'
+import { checkCopilotToken } from '@/api/magic/copilot-auth'
 
 const { t } = useI18n()
 const modelsStore = useModelsStore()

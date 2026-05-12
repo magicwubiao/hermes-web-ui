@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { checkHealth, fetchAvailableModels, updateDefaultModel, triggerUpdate, type AvailableModelGroup } from '@/api/hermes/system'
+import { checkHealth, fetchAvailableModels, updateDefaultModel, triggerUpdate, type AvailableModelGroup } from '@/api/magic/system'
 
 const WEB_UI_VERSION = __APP_VERSION__
 

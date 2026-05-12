@@ -2,7 +2,7 @@
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { NButton } from 'naive-ui'
-import { useGroupChatStore } from '@/stores/hermes/group-chat'
+import { useGroupChatStore } from '@/stores/magic/group-chat'
 
 const { t } = useI18n()
 const emit = defineEmits<{ send: [content: string] }>()

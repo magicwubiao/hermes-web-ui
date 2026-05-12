@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NSwitch, NSelect, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useSettingsStore } from '@/stores/hermes/settings'
+import { useSettingsStore } from '@/stores/magic/settings'
 import { useTheme, type BrightnessMode } from '@/composables/useTheme'
 import SettingRow from './SettingRow.vue'
 

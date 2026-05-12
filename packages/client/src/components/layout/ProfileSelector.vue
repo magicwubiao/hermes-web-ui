@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import { NSelect, useMessage } from 'naive-ui'
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import { useProfilesStore } from '@/stores/magic/profiles'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

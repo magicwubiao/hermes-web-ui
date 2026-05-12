@@ -31,11 +31,11 @@ vi.mock('@/api/client', () => ({
   request: mockRequest,
 }))
 
-vi.mock('@/api/hermes/kanban', () => ({
+vi.mock('@/api/magic/kanban', () => ({
   getTask: mockGetTask,
 }))
 
-vi.mock('@/stores/hermes/kanban', () => ({
+vi.mock('@/stores/magic/kanban', () => ({
   useKanbanStore: () => ({
     selectedBoard: 'project-a',
     assignees: [{ name: 'alice', counts: { todo: 1 } }, { name: 'bob', counts: { ready: 1 } }],
@@ -46,7 +46,7 @@ vi.mock('@/stores/hermes/kanban', () => ({
   }),
 }))
 
-vi.mock('@/components/hermes/chat/HistoryMessageList.vue', () => ({
+vi.mock('@/components/magic/chat/HistoryMessageList.vue', () => ({
   default: defineComponent({
     name: 'HistoryMessageList',
     props: { session: { type: Object, required: false } },
@@ -96,7 +96,7 @@ vi.mock('naive-ui', () => ({
   useMessage: mockUseMessage,
 }))
 
-import KanbanTaskDrawer from '@/components/hermes/kanban/KanbanTaskDrawer.vue'
+import KanbanTaskDrawer from '@/components/magic/kanban/KanbanTaskDrawer.vue'
 
 describe('KanbanTaskDrawer', () => {
   beforeEach(() => {
@@ -199,9 +199,9 @@ describe('KanbanTaskDrawer', () => {
     await sessionsTitle?.trigger('click')
     await flushPromises()
 
-    expect(mockRequest).toHaveBeenCalledWith('/api/hermes/kanban/search-sessions?task_id=task-2&profile=fresh&board=project-a')
+    expect(mockRequest).toHaveBeenCalledWith('/api/magic/kanban/search-sessions?task_id=task-2&profile=fresh&board=project-a')
     await wrapper.find('.session-item').trigger('click')
-    expect(mockRouterPush).toHaveBeenCalledWith({ name: 'hermes.chat', query: { session: 'session-2' } })
+    expect(mockRouterPush).toHaveBeenCalledWith({ name: 'magic.chat', query: { session: 'session-2' } })
   })
 
   it('executes complete, block, unblock, and assign actions', async () => {

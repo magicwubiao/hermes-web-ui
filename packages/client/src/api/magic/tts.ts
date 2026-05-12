@@ -5,7 +5,7 @@ export interface TtsOptions {
 
 export async function generateSpeech(opts: TtsOptions): Promise<{ audio: Blob; engine: string }> {
   const res = await fetch(
-    `${localStorage.getItem('hermes_server_url') || ''}/api/hermes/tts`,
+    `${localStorage.getItem('hermes_server_url') || ''}/api/magic/tts`,
     {
       method: 'POST',
       headers: {

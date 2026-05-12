@@ -2,8 +2,8 @@
 import { ref, reactive, onUnmounted } from 'vue'
 import { NSwitch, NInput, NButton, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useSettingsStore } from '@/stores/hermes/settings'
-import { saveCredentials as saveCredsApi, fetchWeixinQrCode, pollWeixinQrStatus, saveWeixinCredentials } from '@/api/hermes/config'
+import { useSettingsStore } from '@/stores/magic/settings'
+import { saveCredentials as saveCredsApi, fetchWeixinQrCode, pollWeixinQrStatus, saveWeixinCredentials } from '@/api/magic/config'
 import PlatformCard from './PlatformCard.vue'
 import SettingRow from './SettingRow.vue'
 

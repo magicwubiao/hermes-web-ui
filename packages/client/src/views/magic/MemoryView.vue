@@ -2,8 +2,8 @@
 import { ref, onMounted, computed } from 'vue'
 import { NButton, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import MarkdownRenderer from '@/components/hermes/chat/MarkdownRenderer.vue'
-import { fetchMemory, saveMemory, type MemoryData } from '@/api/hermes/skills'
+import MarkdownRenderer from '@/components/magic/chat/MarkdownRenderer.vue'
+import { fetchMemory, saveMemory, type MemoryData } from '@/api/magic/skills'
 
 const { t } = useI18n()
 const message = useMessage()

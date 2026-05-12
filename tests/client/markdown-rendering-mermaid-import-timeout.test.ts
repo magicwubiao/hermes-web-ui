@@ -20,7 +20,7 @@ vi.mock('naive-ui', () => ({
   }),
 }))
 
-import MarkdownRenderer from '@/components/hermes/chat/MarkdownRenderer.vue'
+import MarkdownRenderer from '@/components/magic/chat/MarkdownRenderer.vue'
 
 async function flushMermaidRender(): Promise<void> {
   for (let i = 0; i < 16; i += 1) {

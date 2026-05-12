@@ -13,9 +13,9 @@ const mockProfilesApi = vi.hoisted(() => ({
   importProfile: vi.fn(),
 }))
 
-vi.mock('@/api/hermes/profiles', () => mockProfilesApi)
+vi.mock('@/api/magic/profiles', () => mockProfilesApi)
 
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import { useProfilesStore } from '@/stores/magic/profiles'
 
 describe('Profiles Store', () => {
   beforeEach(() => {

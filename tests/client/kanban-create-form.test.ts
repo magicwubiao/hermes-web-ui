@@ -16,7 +16,7 @@ vi.mock('vue-i18n', () => ({
   }),
 }))
 
-vi.mock('@/stores/hermes/kanban', () => ({
+vi.mock('@/stores/magic/kanban', () => ({
   useKanbanStore: () => ({
     assignees: [{ name: 'alice', counts: { todo: 1 } }],
     createTask: mockCreateTask,
@@ -47,7 +47,7 @@ vi.mock('naive-ui', () => ({
   useMessage: () => mockMessage,
 }))
 
-import KanbanCreateForm from '@/components/hermes/kanban/KanbanCreateForm.vue'
+import KanbanCreateForm from '@/components/magic/kanban/KanbanCreateForm.vue'
 
 describe('KanbanCreateForm', () => {
   beforeEach(() => {

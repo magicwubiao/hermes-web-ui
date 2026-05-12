@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import * as systemApi from '@/api/hermes/system'
-import type { AvailableModelGroup, CustomProvider } from '@/api/hermes/system'
+import * as systemApi from '@/api/magic/system'
+import type { AvailableModelGroup, CustomProvider } from '@/api/magic/system'
 import { useAppStore } from './app'
 
 export const useModelsStore = defineStore('models', () => {

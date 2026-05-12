@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { NInputNumber, NSelect, NSwitch, useMessage } from "naive-ui";
 import { useI18n } from "vue-i18n";
-import { useSettingsStore } from "@/stores/hermes/settings";
-import { useSessionBrowserPrefsStore } from "@/stores/hermes/session-browser-prefs";
+import { useSettingsStore } from "@/stores/magic/settings";
+import { useSessionBrowserPrefsStore } from "@/stores/magic/session-browser-prefs";
 import SettingRow from "./SettingRow.vue";
 
 const settingsStore = useSettingsStore();

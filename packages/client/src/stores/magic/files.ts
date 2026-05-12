@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import * as filesApi from '@/api/hermes/files'
-import type { FileEntry } from '@/api/hermes/files'
+import * as filesApi from '@/api/magic/files'
+import type { FileEntry } from '@/api/magic/files'
 
 const EXT_LANG_MAP: Record<string, string> = {
   '.js': 'javascript', '.jsx': 'javascript',

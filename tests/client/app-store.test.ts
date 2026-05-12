@@ -9,9 +9,9 @@ const mockSystemApi = vi.hoisted(() => ({
   triggerUpdate: vi.fn(),
 }))
 
-vi.mock('@/api/hermes/system', () => mockSystemApi)
+vi.mock('@/api/magic/system', () => mockSystemApi)
 
-import { useAppStore } from '@/stores/hermes/app'
+import { useAppStore } from '@/stores/magic/app'
 
 describe('App Store', () => {
   beforeEach(() => {

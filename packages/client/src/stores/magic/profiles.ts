@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import * as profilesApi from '@/api/hermes/profiles'
-import type { HermesProfile, HermesProfileDetail } from '@/api/hermes/profiles'
+import * as profilesApi from '@/api/magic/profiles'
+import type { HermesProfile, HermesProfileDetail } from '@/api/magic/profiles'
 
 const ACTIVE_PROFILE_STORAGE_KEY = 'hermes_active_profile_name'
 

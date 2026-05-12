@@ -57,15 +57,15 @@ export async function checkHealth(): Promise<HealthResponse> {
 }
 
 export async function triggerUpdate(): Promise<{ success: boolean; message: string }> {
-  return request<{ success: boolean; message: string }>('/api/hermes/update', { method: 'POST' })
+  return request<{ success: boolean; message: string }>('/api/magic/update', { method: 'POST' })
 }
 
 export async function fetchConfigModels(): Promise<ConfigModelsResponse> {
-  return request<ConfigModelsResponse>('/api/hermes/config/models')
+  return request<ConfigModelsResponse>('/api/magic/config/models')
 }
 
 export async function fetchAvailableModels(): Promise<AvailableModelsResponse> {
-  return request<AvailableModelsResponse>('/api/hermes/available-models')
+  return request<AvailableModelsResponse>('/api/magic/available-models')
 }
 
 export async function updateDefaultModel(data: {
@@ -74,21 +74,21 @@ export async function updateDefaultModel(data: {
   base_url?: string
   api_key?: string
 }): Promise<void> {
-  await request('/api/hermes/config/model', {
+  await request('/api/magic/config/model', {
     method: 'PUT',
     body: JSON.stringify(data),
   })
 }
 
 export async function addCustomProvider(data: CustomProvider): Promise<void> {
-  await request('/api/hermes/config/providers', {
+  await request('/api/magic/config/providers', {
     method: 'POST',
     body: JSON.stringify(data),
   })
 }
 
 export async function removeCustomProvider(name: string): Promise<void> {
-  await request(`/api/hermes/config/providers/${encodeURIComponent(name)}`, {
+  await request(`/api/magic/config/providers/${encodeURIComponent(name)}`, {
     method: 'DELETE',
   })
 }
@@ -99,7 +99,7 @@ export async function updateProvider(poolKey: string, data: {
   api_key?: string
   model?: string
 }): Promise<void> {
-  await request(`/api/hermes/config/providers/${encodeURIComponent(poolKey)}`, {
+  await request(`/api/magic/config/providers/${encodeURIComponent(poolKey)}`, {
     method: 'PUT',
     body: JSON.stringify(data),
   })

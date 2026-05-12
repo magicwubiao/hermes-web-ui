@@ -21,7 +21,7 @@ import {
   assignTask,
   getStats,
   getAssignees,
-} from '../../packages/client/src/api/hermes/kanban'
+} from '../../packages/client/src/api/magic/kanban'
 
 describe('Kanban API', () => {
   beforeEach(() => {
@@ -33,7 +33,7 @@ describe('Kanban API', () => {
 
     const result = await listTasks({ board: 'default', status: 'blocked', assignee: 'alice', tenant: 'ops', includeArchived: true })
 
-    expect(mockRequest).toHaveBeenCalledWith('/api/hermes/kanban?board=default&status=blocked&assignee=alice&tenant=ops&includeArchived=true')
+    expect(mockRequest).toHaveBeenCalledWith('/api/magic/kanban?board=default&status=blocked&assignee=alice&tenant=ops&includeArchived=true')
     expect(result).toEqual([{ id: 'task-1' }])
   })
 
@@ -50,10 +50,10 @@ describe('Kanban API', () => {
     await getTask('task-1')
 
     expect(mockRequest.mock.calls.map(call => call[0])).toEqual([
-      '/api/hermes/kanban?board=default',
-      '/api/hermes/kanban/stats?board=default',
-      '/api/hermes/kanban/assignees?board=default',
-      '/api/hermes/kanban/task-1?board=default',
+      '/api/magic/kanban?board=default',
+      '/api/magic/kanban/stats?board=default',
+      '/api/magic/kanban/assignees?board=default',
+      '/api/magic/kanban/task-1?board=default',
     ])
   })
 
@@ -72,11 +72,11 @@ describe('Kanban API', () => {
     await assignTask('task-1', 'bob', { board: 'project-a' })
 
     expect(mockRequest.mock.calls).toEqual([
-      ['/api/hermes/kanban?board=project-a', { method: 'POST', body: JSON.stringify({ title: 'Ship', assignee: 'alice', priority: 3 }) }],
-      ['/api/hermes/kanban/complete?board=project-a', { method: 'POST', body: JSON.stringify({ task_ids: ['task-1'], summary: 'done' }) }],
-      ['/api/hermes/kanban/task-1/block?board=project-a', { method: 'POST', body: JSON.stringify({ reason: 'waiting' }) }],
-      ['/api/hermes/kanban/unblock?board=project-a', { method: 'POST', body: JSON.stringify({ task_ids: ['task-1'] }) }],
-      ['/api/hermes/kanban/task-1/assign?board=project-a', { method: 'POST', body: JSON.stringify({ profile: 'bob' }) }],
+      ['/api/magic/kanban?board=project-a', { method: 'POST', body: JSON.stringify({ title: 'Ship', assignee: 'alice', priority: 3 }) }],
+      ['/api/magic/kanban/complete?board=project-a', { method: 'POST', body: JSON.stringify({ task_ids: ['task-1'], summary: 'done' }) }],
+      ['/api/magic/kanban/task-1/block?board=project-a', { method: 'POST', body: JSON.stringify({ reason: 'waiting' }) }],
+      ['/api/magic/kanban/unblock?board=project-a', { method: 'POST', body: JSON.stringify({ task_ids: ['task-1'] }) }],
+      ['/api/magic/kanban/task-1/assign?board=project-a', { method: 'POST', body: JSON.stringify({ profile: 'bob' }) }],
     ])
   })
 
@@ -97,12 +97,12 @@ describe('Kanban API', () => {
     await expect(getAssignees({ board: 'project-a' })).resolves.toEqual([{ name: 'alice', on_disk: true, counts: { todo: 1 } }])
 
     expect(mockRequest.mock.calls).toEqual([
-      ['/api/hermes/kanban/boards?includeArchived=true'],
-      ['/api/hermes/kanban/boards', { method: 'POST', body: JSON.stringify({ slug: 'project-a', name: 'Project A' }) }],
-      ['/api/hermes/kanban/boards/project-a', { method: 'DELETE' }],
-      ['/api/hermes/kanban/capabilities'],
-      ['/api/hermes/kanban/stats?board=project-a'],
-      ['/api/hermes/kanban/assignees?board=project-a'],
+      ['/api/magic/kanban/boards?includeArchived=true'],
+      ['/api/magic/kanban/boards', { method: 'POST', body: JSON.stringify({ slug: 'project-a', name: 'Project A' }) }],
+      ['/api/magic/kanban/boards/project-a', { method: 'DELETE' }],
+      ['/api/magic/kanban/capabilities'],
+      ['/api/magic/kanban/stats?board=project-a'],
+      ['/api/magic/kanban/assignees?board=project-a'],
     ])
   })
 })

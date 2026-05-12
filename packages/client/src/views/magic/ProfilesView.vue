@@ -2,11 +2,11 @@
 import { ref, onMounted } from 'vue'
 import { NButton, NSpin } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import ProfilesPanel from '@/components/hermes/profiles/ProfilesPanel.vue'
-import ProfileCreateModal from '@/components/hermes/profiles/ProfileCreateModal.vue'
-import ProfileRenameModal from '@/components/hermes/profiles/ProfileRenameModal.vue'
-import ProfileImportModal from '@/components/hermes/profiles/ProfileImportModal.vue'
-import { useProfilesStore } from '@/stores/hermes/profiles'
+import ProfilesPanel from '@/components/magic/profiles/ProfilesPanel.vue'
+import ProfileCreateModal from '@/components/magic/profiles/ProfileCreateModal.vue'
+import ProfileRenameModal from '@/components/magic/profiles/ProfileRenameModal.vue'
+import ProfileImportModal from '@/components/magic/profiles/ProfileImportModal.vue'
+import { useProfilesStore } from '@/stores/magic/profiles'
 
 const { t } = useI18n()
 const profilesStore = useProfilesStore()

@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { NAlert, NButton, NEmpty, NInput, NSelect, NSpin, NTag, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { fetchPlugins, type HermesPluginInfo, type HermesPluginsMetadata } from '@/api/hermes/plugins'
+import { fetchPlugins, type HermesPluginInfo, type HermesPluginsMetadata } from '@/api/magic/plugins'
 
 const { t, te } = useI18n()
 const message = useMessage()

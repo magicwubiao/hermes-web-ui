@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { useChatStore, type Session } from '@/stores/hermes/chat'
-import { useAppStore } from '@/stores/hermes/app'
-import { useProfilesStore } from '@/stores/hermes/profiles'
-import { useSessionBrowserPrefsStore } from '@/stores/hermes/session-browser-prefs'
+import { useChatStore, type Session } from '@/stores/magic/chat'
+import { useAppStore } from '@/stores/magic/app'
+import { useProfilesStore } from '@/stores/magic/profiles'
+import { useSessionBrowserPrefsStore } from '@/stores/magic/session-browser-prefs'
 import { NButton, NDropdown, NInput, NModal, NTooltip, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
 import { getSourceLabel } from '@/shared/session-display'
 import { copyToClipboard } from '@/utils/clipboard'
-import FolderPicker from '@/components/hermes/chat/FolderPicker.vue'
-import HistoryMessageList from '@/components/hermes/chat/HistoryMessageList.vue'
-import SessionListItem from '@/components/hermes/chat/SessionListItem.vue'
-import { renameSession, setSessionWorkspace, fetchHermesSessions, fetchHermesSession, exportSession, type SessionSummary } from '@/api/hermes/sessions'
+import FolderPicker from '@/components/magic/chat/FolderPicker.vue'
+import HistoryMessageList from '@/components/magic/chat/HistoryMessageList.vue'
+import SessionListItem from '@/components/magic/chat/SessionListItem.vue'
+import { renameSession, setSessionWorkspace, fetchHermesSessions, fetchHermesSession, exportSession, type SessionSummary } from '@/api/magic/sessions'
 
 const chatStore = useChatStore()
 const appStore = useAppStore()

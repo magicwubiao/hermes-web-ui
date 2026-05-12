@@ -6,7 +6,7 @@ vi.stubGlobal('fetch', mockFetch)
 
 vi.mock('@/router', () => ({
   default: {
-    currentRoute: { value: { name: 'hermes.jobs' } },
+    currentRoute: { value: { name: 'magic.jobs' } },
     replace: vi.fn(),
   },
 }))
@@ -16,8 +16,8 @@ import {
   scheduleToDisplayText,
   scheduleToEditableInput,
   updateJob,
-} from '../../packages/client/src/api/hermes/jobs'
-import type { Job } from '../../packages/client/src/api/hermes/jobs'
+} from '../../packages/client/src/api/magic/jobs'
+import type { Job } from '../../packages/client/src/api/magic/jobs'
 
 function makeJob(overrides: Partial<Job> = {}): Job {
   return {

@@ -33,5 +33,5 @@ export interface HermesPluginsResponse {
 }
 
 export async function fetchPlugins(): Promise<HermesPluginsResponse> {
-  return request<HermesPluginsResponse>('/api/hermes/plugins')
+  return request<HermesPluginsResponse>('/api/magic/plugins')
 }

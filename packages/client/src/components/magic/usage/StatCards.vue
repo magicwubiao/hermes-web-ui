@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { useUsageStore } from '@/stores/hermes/usage'
+import { useUsageStore } from '@/stores/magic/usage'
 
 const { t } = useI18n()
 const usageStore = useUsageStore()

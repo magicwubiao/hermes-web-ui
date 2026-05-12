@@ -1,5 +1,5 @@
 import { ref, computed, onUnmounted } from 'vue'
-import { generateSpeech, playAudioBlob } from '@/api/hermes/tts'
+import { generateSpeech, playAudioBlob } from '@/api/magic/tts'
 
 export interface SpeechOptions {
   lang?: string      // 语言 'zh-CN', 'en-US' 等

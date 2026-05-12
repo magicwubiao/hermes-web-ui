@@ -2,7 +2,7 @@
 import { ref, onUnmounted } from 'vue'
 import { NModal, NButton, NSpin, useMessage } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { startNousLogin, pollNousLogin } from '@/api/hermes/nous-auth'
+import { startNousLogin, pollNousLogin } from '@/api/magic/nous-auth'
 import { copyToClipboard } from '@/utils/clipboard'
 
 const { t } = useI18n()

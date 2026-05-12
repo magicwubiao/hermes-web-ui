@@ -10,7 +10,7 @@ vi.mock('@/composables/useSessionSearch', () => ({
   }),
 }))
 
-vi.mock('@/stores/hermes/app', () => ({
+vi.mock('@/stores/magic/app', () => ({
   useAppStore: () => ({
     sidebarOpen: true,
     connected: true,
@@ -27,7 +27,7 @@ vi.mock('vue-router', async (importOriginal) => {
   const actual = await importOriginal<any>()
   return {
     ...actual,
-    useRoute: () => ({ name: 'hermes.chat' }),
+    useRoute: () => ({ name: 'magic.chat' }),
     useRouter: () => ({ push: vi.fn() }),
   }
 })

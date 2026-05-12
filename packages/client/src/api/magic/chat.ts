@@ -350,7 +350,7 @@ export function connectChatRun(): Socket {
   // Get active profile from store (authoritative source)
   let profile = 'default'
   try {
-    const { useProfilesStore } = require('@/stores/hermes/profiles')
+    const { useProfilesStore } = require('@/stores/magic/profiles')
     const profilesStore = useProfilesStore()
     profile = profilesStore.activeProfileName || 'default'
   } catch {
@@ -545,5 +545,5 @@ export function startRunViaSocket(
 }
 
 export async function fetchModels(): Promise<{ data: Array<{ id: string }> }> {
-  return request('/api/hermes/v1/models')
+  return request('/api/magic/v1/models')
 }

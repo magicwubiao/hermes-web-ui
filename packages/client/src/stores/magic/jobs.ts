@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import * as jobsApi from '@/api/hermes/jobs'
-import type { Job, CreateJobRequest, UpdateJobRequest } from '@/api/hermes/jobs'
+import * as jobsApi from '@/api/magic/jobs'
+import type { Job, CreateJobRequest, UpdateJobRequest } from '@/api/magic/jobs'
 
 function matchId(job: Job, id: string): boolean {
   return job.job_id === id || job.id === id

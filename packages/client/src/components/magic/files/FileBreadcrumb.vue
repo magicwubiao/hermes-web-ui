@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { NBreadcrumb, NBreadcrumbItem } from 'naive-ui'
-import { useFilesStore } from '@/stores/hermes/files'
+import { useFilesStore } from '@/stores/magic/files'
 
 const { t } = useI18n()
 const filesStore = useFilesStore()

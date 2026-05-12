@@ -2,10 +2,10 @@
 import { ref, computed, onMounted } from 'vue'
 import { NButton, NSpin } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import JobsPanel from '@/components/hermes/jobs/JobsPanel.vue'
-import JobRunHistory from '@/components/hermes/jobs/JobRunHistory.vue'
-import JobFormModal from '@/components/hermes/jobs/JobFormModal.vue'
-import { useJobsStore } from '@/stores/hermes/jobs'
+import JobsPanel from '@/components/magic/jobs/JobsPanel.vue'
+import JobRunHistory from '@/components/magic/jobs/JobRunHistory.vue'
+import JobFormModal from '@/components/magic/jobs/JobFormModal.vue'
+import { useJobsStore } from '@/stores/magic/jobs'
 
 const { t } = useI18n()
 const jobsStore = useJobsStore()

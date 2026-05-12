@@ -9,7 +9,7 @@ const apiMocks = vi.hoisted(() => ({
   routerPushMock: vi.fn(),
 }))
 
-vi.mock('@/api/hermes/sessions', () => ({
+vi.mock('@/api/magic/sessions', () => ({
   fetchSessions: apiMocks.fetchSessionsMock,
   searchSessions: apiMocks.searchSessionsMock,
 }))
@@ -21,11 +21,11 @@ const chatStoreMock = vi.hoisted(() => ({
   newChat: vi.fn(),
 }))
 
-vi.mock('@/stores/hermes/chat', () => ({
+vi.mock('@/stores/magic/chat', () => ({
   useChatStore: () => chatStoreMock,
 }))
 
-const routerCurrentRoute = { value: { name: 'hermes.logs' } }
+const routerCurrentRoute = { value: { name: 'magic.logs' } }
 
 vi.mock('vue-router', () => ({
   useRouter: () => ({
@@ -66,7 +66,7 @@ vi.mock('naive-ui', async () => {
   }
 })
 
-import SessionSearchModal from '@/components/hermes/chat/SessionSearchModal.vue'
+import SessionSearchModal from '@/components/magic/chat/SessionSearchModal.vue'
 import { useSessionSearch } from '@/composables/useSessionSearch'
 import { useKeyboard } from '@/composables/useKeyboard'
 
@@ -130,7 +130,7 @@ describe('session search modal', () => {
         rank: 0.1,
       },
     ])
-    routerCurrentRoute.value = { name: 'hermes.logs' }
+    routerCurrentRoute.value = { name: 'magic.logs' }
   })
 
   afterEach(() => {
@@ -181,7 +181,7 @@ describe('session search modal', () => {
 
     expect(chatStoreMock.loadSessions).toHaveBeenCalled()
     expect(chatStoreMock.switchSession).toHaveBeenCalledWith('match-1', '17')
-    expect(apiMocks.routerPushMock).toHaveBeenCalledWith({ name: 'hermes.chat' })
+    expect(apiMocks.routerPushMock).toHaveBeenCalledWith({ name: 'magic.chat' })
   })
 })
 

@@ -31,25 +31,25 @@ describe('kanban routes', () => {
     const paths = kanbanRoutes.stack.map((entry: any) => entry.path)
 
     expect(paths).toEqual(expect.arrayContaining([
-      '/api/hermes/kanban/boards',
-      '/api/hermes/kanban/boards/:slug',
-      '/api/hermes/kanban/capabilities',
-      '/api/hermes/kanban/stats',
-      '/api/hermes/kanban/assignees',
-      '/api/hermes/kanban/artifact',
-      '/api/hermes/kanban/search-sessions',
-      '/api/hermes/kanban',
-      '/api/hermes/kanban/:id',
-      '/api/hermes/kanban/complete',
-      '/api/hermes/kanban/unblock',
-      '/api/hermes/kanban/:id/block',
-      '/api/hermes/kanban/:id/assign',
+      '/api/magic/kanban/boards',
+      '/api/magic/kanban/boards/:slug',
+      '/api/magic/kanban/capabilities',
+      '/api/magic/kanban/stats',
+      '/api/magic/kanban/assignees',
+      '/api/magic/kanban/artifact',
+      '/api/magic/kanban/search-sessions',
+      '/api/magic/kanban',
+      '/api/magic/kanban/:id',
+      '/api/magic/kanban/complete',
+      '/api/magic/kanban/unblock',
+      '/api/magic/kanban/:id/block',
+      '/api/magic/kanban/:id/assign',
     ]))
   })
 
   it('delegates search-sessions to the controller', async () => {
     const { kanbanRoutes } = await import('../../packages/server/src/routes/magic/kanban')
-    const layer = kanbanRoutes.stack.find((entry: any) => entry.path === '/api/hermes/kanban/search-sessions')
+    const layer = kanbanRoutes.stack.find((entry: any) => entry.path === '/api/magic/kanban/search-sessions')
     const ctx: any = { query: { task_id: 'task-1', profile: 'alice' }, body: null, params: {} }
 
     await layer.stack[0](ctx)

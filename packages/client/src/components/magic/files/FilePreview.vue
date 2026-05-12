@@ -2,9 +2,9 @@
 import { h } from 'vue'
 import { NButton, NIcon } from 'naive-ui'
 import { useI18n } from 'vue-i18n'
-import { useFilesStore } from '@/stores/hermes/files'
-import { getFileDownloadUrl } from '@/api/hermes/files'
-import MarkdownRenderer from '@/components/hermes/chat/MarkdownRenderer.vue'
+import { useFilesStore } from '@/stores/magic/files'
+import { getFileDownloadUrl } from '@/api/magic/files'
+import MarkdownRenderer from '@/components/magic/chat/MarkdownRenderer.vue'
 
 const { t } = useI18n()
 const filesStore = useFilesStore()

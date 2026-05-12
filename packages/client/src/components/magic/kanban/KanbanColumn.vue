@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { NCollapse, NCollapseItem } from 'naive-ui'
 import KanbanTaskCard from './KanbanTaskCard.vue'
-import type { KanbanTask, KanbanTaskStatus } from '@/api/hermes/kanban'
+import type { KanbanTask, KanbanTaskStatus } from '@/api/magic/kanban'
 
 const props = defineProps<{
   status: KanbanTaskStatus

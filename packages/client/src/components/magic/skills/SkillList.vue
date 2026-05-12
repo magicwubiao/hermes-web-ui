@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { NSwitch, useMessage } from 'naive-ui'
-import type { SkillCategory, SkillSource, SkillInfo } from '@/api/hermes/skills'
-import { toggleSkill } from '@/api/hermes/skills'
+import type { SkillCategory, SkillSource, SkillInfo } from '@/api/magic/skills'
+import { toggleSkill } from '@/api/magic/skills'
 import { useI18n } from 'vue-i18n'
 
 type SourceFilter = SkillSource | 'modified'

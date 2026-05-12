@@ -2,10 +2,10 @@
 import { NButton } from 'naive-ui'
 import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useUsageStore } from '@/stores/hermes/usage'
-import StatCards from '@/components/hermes/usage/StatCards.vue'
-import ModelBreakdown from '@/components/hermes/usage/ModelBreakdown.vue'
-import DailyTrend from '@/components/hermes/usage/DailyTrend.vue'
+import { useUsageStore } from '@/stores/magic/usage'
+import StatCards from '@/components/magic/usage/StatCards.vue'
+import ModelBreakdown from '@/components/magic/usage/ModelBreakdown.vue'
+import DailyTrend from '@/components/magic/usage/DailyTrend.vue'
 
 const { t } = useI18n()
 const usageStore = useUsageStore()

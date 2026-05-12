@@ -26,7 +26,7 @@ vi.mock('naive-ui', () => ({
   }),
 }))
 
-import KanbanTaskCard from '@/components/hermes/kanban/KanbanTaskCard.vue'
+import KanbanTaskCard from '@/components/magic/kanban/KanbanTaskCard.vue'
 
 describe('KanbanTaskCard i18n', () => {
   afterEach(() => {
