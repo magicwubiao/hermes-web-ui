@@ -129,7 +129,7 @@ Hermes Web UI 支持通过 BFF 适配层连接 go-magic 后端。适配层位于
 
 | 变量 | 默认值 | 说明 |
 |------|--------|------|
-| `MAGIC_API_URL` | `http://localhost:8080` | go-magic 后端 API 地址 |
+| `MAGIC_API_URL` | `http://localhost:5000` | go-magic 后端 API 地址 |
 
 ### 使用方式
 

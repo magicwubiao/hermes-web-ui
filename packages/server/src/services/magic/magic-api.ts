@@ -17,7 +17,7 @@
  * - GET  /api/logs         - 日志
  */
 
-const DEFAULT_MAGIC_BASE_URL = process.env.MAGIC_API_URL || 'http://localhost:8080'
+const DEFAULT_MAGIC_BASE_URL = process.env.MAGIC_API_URL || 'http://localhost:5000'
 
 export interface MagicConfig {
   baseUrl?: string
